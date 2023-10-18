@@ -2,19 +2,31 @@
 
 ## Overview
 
-What is your app? Brief description in a couple of sentences.
+<!-- What is your app? Brief description in a couple of sentences. -->
+
+My app does price comparions for shops with in stock items. It tells you prices of the the products and shops around you that has it.
 
 ### Problem
 
-Why is your app needed? Background information around any pain points or other reasons.
+<!-- Why is your app needed? Background information around any pain points or other reasons. -->
+
+It is hard to compare prices espeically when its a in person shop. People would like to buy something the same day instead of waiting for something to be shipped.
 
 ### User Profile
 
-Who will use your app? How will they use it? Any special considerations that your app must take into account.
+<!-- Who will use your app? How will they use it? Any special considerations that your app must take into account. -->
+
+People around the world who are trying to find the cheapest shop for the product that is in stock. The app will be mostly be used on a phone because they will be outside while using it.
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+<!-- List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented. -->
+
+- A database to store all the products
+- dark mode / light mode
+- login
+- google map shows the shops
+- product price chart
 
 ## Implementation
 
@@ -36,7 +48,7 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 ### Data
 
-Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. 
+Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.
 
 ### Endpoints
 
