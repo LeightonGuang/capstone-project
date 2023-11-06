@@ -1,0 +1,15 @@
+@use "../../sass/abstract/variables.scss" as *;
+
+.header {
+  &__logo-container {
+    display: flex;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__divider {
+    border-bottom: 1px solid #e4dab7;
+  }
+}

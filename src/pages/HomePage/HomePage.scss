@@ -1,0 +1,22 @@
+@use "../../sass/abstract/variables.scss" as *;
+
+.main {
+}
+
+.deal-of-the-week {
+  &__container {
+    padding: 0 $mobile-spacing-side;
+  }
+  &__list {
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+  }
+
+  &__item {
+    list-style: none;
+    width: 30%;
+    height: 5rem;
+    border: 1px solid black;
+  }
+}

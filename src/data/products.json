@@ -1,0 +1,42 @@
+[
+  {
+    "gpu": [
+      {
+        "brand": "asus",
+        "name": "rtx 4090",
+        "price": [
+          { "store": "abc store", "currency": "pounds", "price": 1000 }
+        ],
+        "category": "electronics",
+        "region": "GB",
+        "instock": true,
+        "releaseDate": "11/11/2023"
+      },
+      {
+        "brand": "asus",
+        "name": "rtx 4080",
+        "price": [{ "store": "abc store", "currency": "pounds", "price": 800 }],
+        "category": "electronics",
+        "region": "GB",
+        "instock": true,
+        "releaseDate": "11/11/2023"
+      },
+      {
+        "brand": "asus",
+        "name": "rtx 4070 ti",
+        "price": [{ "store": "abc store", "currency": "pounds", "price": 500 }],
+        "category": "electronics",
+        "region": "GB",
+        "instock": true,
+        "releaseDate": "11/11/2023"
+      }
+    ],
+    "cpu": [
+      {
+        "brand": "intel",
+        "name": "i9-13900k",
+        "currency": "pounds"
+      }
+    ]
+  }
+]

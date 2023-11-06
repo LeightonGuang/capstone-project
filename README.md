@@ -1,10 +1,14 @@
 # Project Title
 
+- Pricedex
+- Instock Hunter
+
 ## Overview
 
 <!-- What is your app? Brief description in a couple of sentences. -->
 
 My app does price comparions for shops with in stock items. It tells you prices of the the products and shops around you that has it.
+Discover the cheapest product the user desires that is in stock at physical stores.
 
 ### Problem
 
