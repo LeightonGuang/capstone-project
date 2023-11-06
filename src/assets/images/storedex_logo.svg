@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 412.12 500" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="500" width="412.12" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer-1">
+<g opacity="1">
+<path d="M343.435 300L68.6869 200L68.6869 150L0 125L0 225L343.435 350L343.435 300Z" fill="#f1c62a" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M206.061 350L274.748 325L343.435 350L206.061 400L0 325L68.6869 300L206.061 350Z" fill="#fed12c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M0 325L0 375L138.178 425.293L137.374 475L206.061 500L206.061 400L0 325Z" fill="#f1c62a" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M0 125L68.6869 150L206.061 100L343.435 150L412.122 125L206.061 50L0 125Z" fill="#fed12c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M206.061 500L274.748 475L274.748 425L412.122 375L412.122 275L343.435 300L343.435 350L206.061 400L206.061 500Z" fill="#e5bd28" fill-rule="nonzero" opacity="0.898077" stroke="none"/>
+<path d="M206.061 100L206.061 150L343.435 200L343.435 150L206.061 100Z" fill="#f1c62a" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M137.374 25L137.374 75L206.061 100L206.061 50L137.374 25Z" fill="#f1c62a" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M412.122 275L137.374 175L68.6869 200L343.435 300L412.122 275Z" fill="#fed12c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M274.748 25L206.061 0L137.374 25L206.061 50L274.748 25Z" fill="#fed12c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M68.6869 200L68.6869 150L206.061 100L206.061 150L68.6869 200Z" fill="#e5bd28" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M412.122 125L412.122 175L343.435 200L343.435 150L412.122 125Z" fill="#e5bd28" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M274.748 25L274.748 75L206.061 100L206.061 50L274.748 25Z" fill="#e5bd28" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+</svg>

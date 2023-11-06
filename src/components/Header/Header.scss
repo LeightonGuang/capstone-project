@@ -3,6 +3,13 @@
 .header {
   &__logo-container {
     display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
   }
 
   &__title {
