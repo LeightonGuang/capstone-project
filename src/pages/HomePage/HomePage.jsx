@@ -4,6 +4,7 @@ export default function HomePage() {
     <main className="main">
       <section className="deal-of-the-week">
         <div className="deal-of-the-week__container">
+          <h2>Deal of the week</h2>
           <ul className="deal-of-the-week__list">
             <li className="deal-of-the-week__item">Product 1</li>
             <li className="deal-of-the-week__item">Product 2</li>
