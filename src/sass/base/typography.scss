@@ -1,29 +1,35 @@
 @font-face {
-  font-family: "Roboto";
-  src: url("../../assets/fonts/Roboto-Light.ttf");
+  font-family: "Poppins";
+  src: url("../../assets/fonts/Poppins/Poppins-Light.ttf");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: url("../../assets/fonts/Roboto-Regular.ttf");
+  font-family: "Poppins";
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: url("../../assets/fonts/Roboto-Medium.ttf");
+  font-family: "Poppins";
+  src: url("../../assets/fonts/Poppins/Poppins-Medium.ttf");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: url("../../assets/fonts/Roboto-Bold.ttf");
+  font-family: "Poppins";
+  src: url("../../assets/fonts/Poppins/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf");
   font-weight: 700;
 }
 
 * {
-  font-family: "Roboto", monospace, sans-serif;
+  font-family: "Poppins";
 }
 
 h1 {
