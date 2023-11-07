@@ -1,0 +1,26 @@
+.deal-of-the-week {
+  &__container {
+  }
+
+  &__subtitle {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  &__item {
+    list-style: none;
+    // width: 30%;
+    height: 5rem;
+    border: 1px solid black;
+  }
+}
