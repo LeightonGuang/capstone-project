@@ -3,6 +3,8 @@
 Store + Index = Storedex
 Shop + Index = Shopdex
 
+![Logo](./src/assets/images/storedex_logo.svg)
+
 ## Overview
 
 <!-- What is your app? Brief description in a couple of sentences. -->
