@@ -1,0 +1,28 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.product-page {
+  &__container {
+    padding: 0 $mobile-spacing-side;
+  }
+}
+
+.product-info {
+  &__img {
+    &--main {
+    }
+  }
+
+  &__description {
+    background-color: blue;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+  }
+
+  &__container {
+  }
+
+  &__name {
+    margin: 0;
+  }
+}
