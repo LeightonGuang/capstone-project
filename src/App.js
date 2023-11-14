@@ -13,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products/:id" element={<ProductPage />} />
+          
         </Routes>
         <MobileMenu />
       </BrowserRouter>
