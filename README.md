@@ -7,16 +7,15 @@ Shop + Index = Shopdex
 
 <!-- What is your app? Brief description in a couple of sentences. -->
 
-My app will show you all the prices that is available for that specific product. These products are also in stock in a physical store, so customers can just visit the store, and get the product they want that day without waiting for shipping.
+<!-- My app will show you all the prices that is available for that specific product. These products are also in stock in a physical store, so customers can just visit the store, and get the product they want that day without waiting for shipping. -->
 
-My app does price comparions for shops with in stock items. It tells you prices of the the products and shops around you that has it.
-Discover the cheapest product the user desires that is in stock at physical stores.
+My app does price comparions for shops with in stock items. It tells you prices of the the products and shops around you that has it. Discover the cheapest product the user desires that is in stock at physical stores.
 
 ### Problem
 
 <!-- Why is your app needed? Background information around any pain points or other reasons. -->
 
-It is very hard to find a shop with the cheapest price to buy something espeically when it comes to shopping in person. Some people would like to shop something in person so they get to try it, see it in real life and getting the product the same day instead of waiting for it to be shipped.
+It is very hard to find a shop with the cheapest price to buy a product espeically when it comes to shopping in person. Some people would like to shop something in person so they get to try it, see it in real life and getting the product the same day instead of waiting for it to be shipped.
 
 ### User Profile
 
@@ -37,6 +36,7 @@ People who would like to find the cheapest shop for the product they want, try i
 - Save products that you are interested
 
 - shop owners should be able to upload their pricing and location for their product
+- User should be able to browse the all the products listed on the website
 
 - product price chart
 - google map shows the shops
@@ -96,7 +96,7 @@ User signup page
 
 - Login Page /login
 
-User login page
+shop login page
 
 - store owner page /shop/:id
 
@@ -110,16 +110,16 @@ This is where shop owners upload their available products prices
 
 <!-- Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches. -->
 
-Sketches are on my ipad.
+Sketches are uploaded
 
 ### Data
 
 <!-- Describe your data and the relationships between them. You can show this visually using diagrams, or write it out. -->
 
-- users
+- shops
 
-| id  | username | email | password | address | account-created-date |
-| --- | -------- | ----- | -------- | ------- | -------------------- |
+| id  | shop_name | email | password | address | account-created-date |
+| --- | --------- | ----- | -------- | ------- | -------------------- |
 
 - saved
 
@@ -128,13 +128,18 @@ Sketches are on my ipad.
 
 - shops
 
-| id  | location |
-| --- | -------- |
+| id  | address |
+| --- | ------- |
+
+- listings
+
+| id  | product_id | shop_id | price | reports |
+| --- | ---------- | ------- | ----- | ------- |
 
 - products
 
-| id  | product_name | category | shop_id | price |
-| --- | ------------ | -------- | ------- | ----- |
+| id  | product_name | Brand | Model | category | shop_id |
+| --- | ------------ | ----- | ----- | -------- | ------- |
 
 ### Endpoints
 
@@ -150,13 +155,13 @@ Sketches are on my ipad.
 
 - product detail
 
-/products/category/:id
+/products/category
 
 - a list of product that is in that category
 
-/user/:id
+<!-- /user/:id
 
-- get user's details
+- get user's details -->
 
 #### post
 
@@ -166,23 +171,23 @@ uploading new product
 
 #### put
 
-/user/username/edit
+/account/shopname/edit
 
-- edit user name
+- edit account name
 
-/user/email/edit
+/account/email/edit
 
-- edit user email
+- edit account email
 
-/user/password/edit
+/account/password/edit
 
-- edit user password
+- edit account password
 
 ### Auth
 
 <!-- Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented. -->
 
-User Log in and user profile
+shop login
 
 ## Roadmap
 
@@ -203,3 +208,5 @@ User Log in and user profile
 
 - dark mode / light mode
 - admin page
+- signup with google / twitter / facebook
+- parts compatibility
