@@ -1,0 +1,40 @@
+@use "../../sass/abstract/mixins.scss" as *;
+@use "../../sass/abstract/variables.scss" as *;
+
+.mobile-menu {
+  // width: 80%;
+  position: sticky;
+  bottom: 0;
+  margin: $mobile-spacing-side;
+  background-color: orange;
+  border-radius: 1rem;
+  z-index: 0;
+
+  &__nav {
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  &__link {
+    color: black;
+    text-decoration: none;
+    font-size: 0.75rem;
+  }
+
+  &__img-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 3rem;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
