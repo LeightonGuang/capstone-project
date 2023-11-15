@@ -9,13 +9,28 @@
 
 .product-info {
   &__img {
+    //product image card
+    background-color: green;
+    padding: 0.5rem;
+
     &--main {
+    }
+
+    &--select {
+      width: 4rem;
     }
   }
 
+  &__img-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__description {
+    //description card
     background-color: blue;
     padding: 0 1rem;
+    margin: 1rem 0;
     border-radius: 0.5rem;
   }
 
@@ -24,5 +39,19 @@
 
   &__name {
     margin: 0;
+  }
+}
+
+.shops-card {
+  background-color: greenyellow;
+  padding: 0.5rem;
+
+  &__title {
+    margin: 0;
+  }
+
+  &__list {
+    margin: 0;
+    list-style: none;
   }
 }
