@@ -1,4 +1,5 @@
 import "./ProductPage.scss";
+import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
 
 export default function ProductPage() {
   return (
@@ -11,6 +12,23 @@ export default function ProductPage() {
               alt="placeholder img"
               className="product-info__img--main"
             />
+            <div className="product-info__img-list">
+              <img
+                src="https://placehold.co/500x500"
+                alt=""
+                className="product-info__img--select"
+              />
+              <img
+                src="https://placehold.co/500x500"
+                alt=""
+                className="product-info__img--select"
+              />
+              <img
+                src="https://placehold.co/500x500"
+                alt=""
+                className="product-info__img--select"
+              />
+            </div>
           </article>
 
           <article className="product-info__description">
@@ -22,8 +40,17 @@ export default function ProductPage() {
           </article>
         </section>
 
-        <article className="product-listing">
-          
+        <article className="shops-card">
+          <h3 className="shops-card__title">Prices</h3>
+          <div className="shops-card__list">
+            <ShopListingCard className="shops-card__shop" />
+
+            <ShopListingCard />
+
+            <ShopListingCard />
+
+            <ShopListingCard />
+          </div>
         </article>
       </div>
     </div>
