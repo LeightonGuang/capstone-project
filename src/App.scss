@@ -3,7 +3,7 @@
 @use "./sass/base/typography.scss";
 
 .App {
-  background-color: rgb(255, 254, 225);
+  background-color: $background-colour;
   min-height: calc(100vh - 1rem);
   padding: 4rem 0 5rem 0;
 }
