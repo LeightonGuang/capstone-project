@@ -1,6 +1,6 @@
 import "./Header.scss";
 import logo from "../../assets/images/storedex_logo.svg";
-import searchIcon from "../../assets/icons/search_FILL0_wght400_GRAD0_opsz24.svg";
+import searchIcon from "../../assets/icons/search-icon.svg";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -13,7 +13,11 @@ export default function Header() {
         </Link>
 
         <button className="header__search-btn">
-          <img src={searchIcon} alt="" />
+          <img
+            src={searchIcon}
+            alt="search icon"
+            className="header__search-icon"
+          />
         </button>
       </div>
     </header>

@@ -1,18 +1,20 @@
 @use "../../sass/abstract/variables.scss" as *;
 
 .header {
-  position: sticky;
-  top: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  position: fixed;
+  top: 0;
+  align-items: start;
+  margin: 1rem;
+  width: calc(100% - ($mobile-spacing-side * 2));
+  box-shadow: $card-shadow;
 
   &__container {
     //header card
-    margin: 1rem;
-    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 1rem;
-    box-shadow: $card-shadow;
   }
 
   &__logo-container {
@@ -41,6 +43,12 @@
 
   &__search-icon {
     fill: white;
+  }
+
+  &__search-icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    object-fit: fill;
   }
 
   &__divider {
