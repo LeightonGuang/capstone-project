@@ -1,28 +1,35 @@
 @use "../../sass/abstract/variables.scss" as *;
-.product-card {
-  list-style: none;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.deal-card {
+  @include card-style;
+  width: 40vw;
+  color: black;
 
   &__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    background-color: $card-colour;
     border-radius: 0.5rem;
     padding: 0.5rem;
+    gap: 0.5rem;
   }
 
   &__image {
-    width: 4rem;
-  }
-
-  &__divider {
-    width: 100%;
-    margin: 0.5rem;
-    border-bottom: 1px solid #e5d5a7;
+    width: 3rem;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
+
+  }
+
+  &__product-name {
+    text-decoration: none;
+  }
+
+  &__price {
+    text-decoration: none;
   }
 }

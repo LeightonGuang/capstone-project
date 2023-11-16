@@ -1,18 +1,14 @@
 import "./DealCard.scss";
 
-export default function DealCard() {
+export default function DealCard({ img, productName, price }) {
   return (
-    <li className="product-card">
-      <div className="product-card__container">
-        <img
-          src="https://www.price.com.hk/space/product/603000/603200_qeuyf7_0.jpg"
-          alt="product"
-          className="product-card__image"
-        />
-        <div className="product-card__divider" />
-        <div className="product-card__info">
-          <span>Intel 14900k</span>
-          <span>price $5000</span>
+    <li className="deal-card">
+      <div className="deal-card__container">
+        <img src={img} alt="product" className="deal-card__image" />
+
+        <div className="deal-card__info">
+          <span className="deal-card__product-name">{productName}</span>
+          <span className="deal-card__price">{price}</span>
         </div>
       </div>
     </li>
