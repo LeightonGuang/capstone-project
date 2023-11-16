@@ -1,2 +1,8 @@
 @use "./sass/base/reset.scss";
-@use "./sass/base/typography.scss";
+@use "./sass/abstract/variables.scss" as *;
+
+.App {
+  background-color: rgb(255, 254, 225);
+  min-height: calc(100vh - 1rem);
+  padding: 4rem 0 5rem 0;
+}
