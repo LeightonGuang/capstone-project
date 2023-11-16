@@ -13,7 +13,6 @@ export default function MobileMenu() {
   const [isProfileActive, setIsProfileActive] = useState(false);
 
   const handleMenuClick = (event) => {
-    console.log(event.currentTarget.id);
     setIsHomeActive(false);
     setIsCategoryActive(false);
     setIsSavedActive(false);
