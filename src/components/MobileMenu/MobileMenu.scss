@@ -6,7 +6,7 @@
   position: fixed;
   bottom: 0rem;
   width: calc(100% - ($mobile-spacing-side * 2));
-  height: 5rem;
+  height: 4rem;
   margin: $mobile-spacing-side;
   background-color: white;
   box-shadow: $card-shadow;
@@ -34,24 +34,28 @@
 
   &__img-container {
     // menu button
-    display: flex;
-    text-align: center;
+    // display: flex;
+    // justify-content: center;
     flex-direction: column;
-    width: 4rem;
-    height: 4rem;
-    background: $primary;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
-    box-shadow: $card-shadow;
+
+    &--selected {
+      background: $primary;
+      box-shadow: $card-shadow;
+    }
   }
 
   &__home-icon {
   }
 
   &__category-icon {
-    padding: 0.34rem;
+    padding: 0.4rem;
   }
 
   &__heart-icon {
+    padding: 0.3rem;
   }
 
   &__profile-icon {
