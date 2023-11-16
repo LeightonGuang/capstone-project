@@ -2,13 +2,16 @@
 @use "../../sass/abstract/variables.scss" as *;
 
 .mobile-menu {
-  // width: 80%;
-  position: sticky;
-  bottom: 1rem;
+  //mobile menu card
+  position: fixed;
+  bottom: 0rem;
+  width: calc(100% - ($mobile-spacing-side * 2));
+  height: 4rem;
   margin: $mobile-spacing-side;
-  background-color: orange;
-  border-radius: 1rem;
-  z-index: 0;
+  background-color: white;
+  box-shadow: $card-shadow;
+  border-radius: 2.5rem;
+  text-align: center;
 
   &__nav {
   }
@@ -16,7 +19,7 @@
   &__list {
     display: flex;
     list-style: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     margin: 0 auto;
     justify-content: space-between;
   }
@@ -25,13 +28,38 @@
     color: black;
     text-decoration: none;
     font-size: 0.75rem;
+    display: flex;
+    justify-items: center;
   }
 
   &__img-container {
-    display: flex;
-    text-align: center;
+    // menu button
+    // display: flex;
+    // justify-content: center;
     flex-direction: column;
     width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    &--selected {
+      background: $primary;
+      box-shadow: $card-shadow;
+    }
+  }
+
+  &__home-icon {
+  }
+
+  &__category-icon {
+    padding: 0.4rem;
+  }
+
+  &__heart-icon {
+    padding: 0.3rem;
+  }
+
+  &__profile-icon {
+    padding: 0.4rem;
   }
 
   @include tablet {

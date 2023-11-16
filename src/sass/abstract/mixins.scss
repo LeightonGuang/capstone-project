@@ -10,3 +10,8 @@
     @content;
   }
 }
+
+@mixin card {
+  box-shadow: $card-shadow;
+  border-radius: 1rem;
+}

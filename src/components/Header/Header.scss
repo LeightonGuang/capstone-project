@@ -1,7 +1,23 @@
 @use "../../sass/abstract/variables.scss" as *;
 
 .header {
+  position: sticky;
+  top: 1rem;
+
+  &__container {
+    //header card
+    margin: 1rem;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: $card-shadow;
+  }
+
   &__logo-container {
+    text-decoration: none;
+    color: black;
     display: flex;
     align-items: center;
   }
@@ -16,17 +32,11 @@
     margin: 0;
   }
 
-  &__form {
-    display: flex;
-    align-items: center;
-  }
-
-  &__search-button {
+  &__search-btn {
+    background: none;
     border: none;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: $accent;
-    // background-image: url("../../assets/icons/search_FILL0_wght400_GRAD0_opsz24.svg");
+    width: 3rem;
+    height: 3rem;
   }
 
   &__search-icon {
