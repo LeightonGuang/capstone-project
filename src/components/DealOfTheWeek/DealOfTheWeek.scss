@@ -2,8 +2,11 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .deal-of-the-week {
+  // deal of the week card
+  @include card-style;
+  background-color: white;
+
   &__container {
-    box-shadow: $card-shadow;
   }
 
   &__subtitle {
@@ -23,7 +26,6 @@
 
   &__item {
     list-style: none;
-    // width: 30%;
     height: 5rem;
     border: 1px solid black;
   }

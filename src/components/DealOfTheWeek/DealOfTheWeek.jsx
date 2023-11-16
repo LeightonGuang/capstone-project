@@ -1,5 +1,5 @@
 import "./DealOfTheWeek.scss";
-import ProductCard from "../ProductCard/ProductCard";
+import DealCard from "../DealCard/DealCard";
 import { Link } from "react-router-dom";
 
 export default function DealOfTheWeek() {
@@ -9,13 +9,13 @@ export default function DealOfTheWeek() {
         <h2 className="deal-of-the-week__subtitle">Deal of the week</h2>
         <ul className="deal-of-the-week__list">
           <Link to={"/products/:id"}>
-            <ProductCard />
+            <DealCard />
           </Link>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <DealCard />
+          <DealCard />
+          <DealCard />
+          <DealCard />
+          <DealCard />
         </ul>
       </div>
     </section>
