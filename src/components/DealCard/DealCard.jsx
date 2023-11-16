@@ -1,6 +1,6 @@
-import "./ProductCard.scss";
+import "./DealCard.scss";
 
-export default function ProductCard() {
+export default function DealCard() {
   return (
     <li className="product-card">
       <div className="product-card__container">
