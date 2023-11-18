@@ -1,7 +1,27 @@
 import "./ProductPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ProductPage() {
+  const GOOGLE_MAP_API_KEY = "AIzaSyBwkmurehaPP1evvj8i2F67MrPwlDMHrTI";
+
+  const [coordinates, setCoordinates] = useState({});
+
+  const getPostcodeCoordinate = async () => {
+    const { data } = await axios.get(
+      `https://api.postcodes.io/postcodes/ha14su`
+    );
+    setCoordinates({
+      longitude: data.result.longitude,
+      latitude: data.result.latitude,
+    });
+  };
+
+  useEffect(() => {
+    getPostcodeCoordinate();
+  }, []);
+
   return (
     <div className="product-page">
       <div className="product-page__container">
@@ -44,15 +64,27 @@ export default function ProductPage() {
           <h3 className="shops-card__title">Prices</h3>
           <div className="shops-card__list">
             <ShopListingCard className="shops-card__shop" />
-
             <ShopListingCard />
-
             <ShopListingCard />
-
             <ShopListingCard />
           </div>
         </article>
+
+        <iframe
+          title="google map"
+          width="100%"
+          height="400"
+          frameborder="0"
+          referrerpolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/place
+          ?key=${"AIzaSyBwkmurehaPP1evvj8i2F67MrPwlDMHrTI"}
+          &location=${coordinates.latitude},${coordinates.longitude}`}
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   );
 }
+
+// &q=${"Eiffel,Tower"}`}
+// &location=${coordinates.latitude},${coordinates.longitude}
