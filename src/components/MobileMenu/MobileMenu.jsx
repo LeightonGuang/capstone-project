@@ -1,5 +1,5 @@
 import "./MobileMenu.scss";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import homeIcon from "../../assets/icons/home-outline.svg";
 import categoryIcon from "../../assets/icons/category-outline.svg";
 import heartIcon from "../../assets/icons/heart-outline.svg";
@@ -11,9 +11,6 @@ export default function MobileMenu() {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   const [isSavedActive, setIsSavedActive] = useState(false);
   const [isProfileActive, setIsProfileActive] = useState(false);
-
-  const location = useLocation();
-  console.log(location.pathname);
 
   const handleMenuHighlight = (event) => {
     setIsHomeActive(false);
