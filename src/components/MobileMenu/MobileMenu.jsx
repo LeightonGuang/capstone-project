@@ -1,5 +1,5 @@
 import "./MobileMenu.scss";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import homeIcon from "../../assets/icons/home-outline.svg";
 import categoryIcon from "../../assets/icons/category-outline.svg";
 import heartIcon from "../../assets/icons/heart-outline.svg";
@@ -12,7 +12,10 @@ export default function MobileMenu() {
   const [isSavedActive, setIsSavedActive] = useState(false);
   const [isProfileActive, setIsProfileActive] = useState(false);
 
-  const handleMenuClick = (event) => {
+  const location = useLocation();
+  console.log(location.pathname);
+
+  const handleMenuHighlight = (event) => {
     setIsHomeActive(false);
     setIsCategoryActive(false);
     setIsSavedActive(false);
@@ -26,11 +29,11 @@ export default function MobileMenu() {
     <div className="mobile-menu">
       <nav className="mobile-menu__nav">
         <ul className="mobile-menu__list">
-          <Link
+          <NavLink
             to={"/"}
             className="mobile-menu__link"
             id="home-link"
-            onClick={handleMenuClick}
+            onClick={handleMenuHighlight}
           >
             <li
               className={`mobile-menu__img-container ${
@@ -44,12 +47,12 @@ export default function MobileMenu() {
               />
               {/* Home */}
             </li>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={"/category"}
             className="mobile-menu__link"
             id="category-link"
-            onClick={handleMenuClick}
+            // onClick={handleMenuHighlight}
           >
             <li
               className={`mobile-menu__img-container ${
@@ -63,13 +66,13 @@ export default function MobileMenu() {
               />
               {/* Category */}
             </li>
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to={"/saved"}
             className="mobile-menu__link"
             id="saved-link"
-            onClick={handleMenuClick}
+            onClick={handleMenuHighlight}
           >
             <li
               className={`mobile-menu__img-container ${
@@ -83,12 +86,12 @@ export default function MobileMenu() {
               />
               {/* Saved */}
             </li>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={"/profile"}
             className="mobile-menu__link"
             id="profile-link"
-            onClick={handleMenuClick}
+            onClick={handleMenuHighlight}
           >
             <li
               className={`mobile-menu__img-container ${
@@ -102,7 +105,7 @@ export default function MobileMenu() {
               />
               {/* Profile */}
             </li>
-          </Link>
+          </NavLink>
         </ul>
       </nav>
     </div>

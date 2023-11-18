@@ -33,18 +33,10 @@
   }
 
   &__img-container {
-    // menu button
-    // display: flex;
-    // justify-content: center;
     flex-direction: column;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-
-    &--selected {
-      background: $primary;
-      box-shadow: $card-shadow;
-    }
   }
 
   &__home-icon {
@@ -65,4 +57,10 @@
   @include tablet {
     display: none;
   }
+}
+
+.active {
+  background: $primary;
+  box-shadow: $card-shadow;
+  border-radius: 50%;
 }
