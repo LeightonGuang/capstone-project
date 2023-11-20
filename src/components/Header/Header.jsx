@@ -12,7 +12,7 @@ export default function Header() {
             <div className="header__card-front-container">
               <Link to={"/"} className="header__logo-container">
                 <img src={logo} alt="logo" className="header__logo" />
-                <h1 className="header__title">Storedex</h1>
+                <h1 className="header__title">Shopdex</h1>
               </Link>
               <button className="header__search-btn">
                 <img
