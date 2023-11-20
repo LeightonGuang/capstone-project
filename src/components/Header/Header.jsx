@@ -7,18 +7,27 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__container">
-        <Link to={"/"} className="header__logo-container">
-          <img src={logo} alt="logo" className="header__logo" />
-          <h1 className="header__title">Storedex</h1>
-        </Link>
+        <div className="header__card">cod
+          <div className="header__card-front">
+            <div className="header__card-front-container">
+              <Link to={"/"} className="header__logo-container">
+                <img src={logo} alt="logo" className="header__logo" />
+                <h1 className="header__title">Storedex</h1>
+              </Link>
+              <button className="header__search-btn">
+                <img
+                  src={searchIcon}
+                  alt="search icon"
+                  className="header__search-icon"
+                />
+              </button>
+            </div>
+          </div>
 
-        <button className="header__search-btn">
-          <img
-            src={searchIcon}
-            alt="search icon"
-            className="header__search-icon"
-          />
-        </button>
+          <div className="header__card-back">
+            <input type="text" className="header__searchbar" />
+          </div>
+        </div>
       </div>
     </header>
   );

@@ -1,18 +1,40 @@
 @use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
 
 .header {
-  background-color: white;
-  border-radius: 1rem;
   position: fixed;
   top: 0;
   align-items: start;
   margin: 1rem;
   width: calc(100% - ($mobile-spacing-side * 2));
-  box-shadow: $card-shadow;
 
-  &__container {
+  &__card {
     //header card
+    position: absolute;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    border-radius: 1rem;
+    box-shadow: $card-shadow;
+    transform-origin: 100%;
+
+    &:hover {
+      transform: rotateX(0.5turn);
+    }
+  }
+
+  &__card-front {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    @include card-style;
+    padding: 0.5rem;
+    background-color: white;
+  }
+
+  &__card-front-container {
     display: flex;
+    transition: 0.1s;
     justify-content: space-between;
     align-items: center;
   }
@@ -27,11 +49,13 @@
   &__logo {
     width: 2rem;
     height: 2rem;
-    margin: 0.5rem;
+    margin: 0 0.5rem;
   }
 
   &__title {
+    font-weight: 600;
     margin: 0;
+    font-size: 2rem;
   }
 
   &__search-btn {
@@ -51,7 +75,23 @@
     object-fit: fill;
   }
 
-  &__divider {
-    border-bottom: 1px solid #f1f1f1;
+  &__card-back {
+    position: absolute;
+    width: 100%;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+    background-color: white;
+    padding: 0.5rem;
+    transition: 0.1s;
+    transform: rotateX(180deg);
   }
+
+  &__searchbar {
+    height: 3rem;
+    width: 100%;
+    border-radius: 1rem;
+  }
+}
+
+.animation {
 }
