@@ -1,0 +1,18 @@
+@use "../../sass/abstract/mixins.scss" as *;
+@use "../../sass/abstract/variables.scss" as *;
+
+.profile {
+  &__container {
+    padding: 0 1rem;
+  }
+
+  &__card {
+    padding: $mobile-spacing-side;
+    @include card-style;
+    background-color: white;
+  }
+
+  &__title {
+    margin: 0;
+  }
+}

@@ -7,6 +7,8 @@ import MobileMenu from "./components/MobileMenu/MobileMenu";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import FavouritePage from "./pages/FavouritePage/FavouritePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import SignupPage from "./pages/SignupPage/SignupPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 export default function App() {
   return (
@@ -16,9 +18,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category" element={<CategoryPage />} />
+          <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
         <MobileMenu />
       </BrowserRouter>
