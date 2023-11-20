@@ -7,7 +7,7 @@ import scrollToTop from "../../utils/scrollToTop";
 export default function HomePage() {
   useEffect(() => {
     scrollToTop();
-  });
+  },[]);
 
   return (
     <main className="main">
