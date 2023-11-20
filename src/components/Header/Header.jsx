@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__container">
-        <div className="header__card">cod
+        <div className="header__card">
           <div className="header__card-front">
             <div className="header__card-front-container">
               <Link to={"/"} className="header__logo-container">
