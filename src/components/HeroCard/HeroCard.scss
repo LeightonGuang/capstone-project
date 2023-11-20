@@ -4,7 +4,7 @@
 .hero {
   @include card-style;
   background-color: white;
-  padding: 2rem 1rem;
+  padding: 1rem;
   margin-bottom: 1rem;
 
   &__container {
