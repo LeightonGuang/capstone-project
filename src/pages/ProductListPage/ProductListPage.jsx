@@ -9,10 +9,17 @@ export default function ProductListPage() {
 
   const getProductsInCategory = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/category/${category}`
-      );
-      setProductList(data);
+      if (category) {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/category/${category}`
+        );
+        setProductList(data);
+      } else if (!category) {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product`
+        );
+        setProductList(data);
+      }
     } catch (error) {
       console.error(error);
     }
