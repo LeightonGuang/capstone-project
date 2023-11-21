@@ -9,6 +9,7 @@ import FavouritePage from "./pages/FavouritePage/FavouritePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ProductListPage from "./pages/ProductListPage/ProductListPage";
 
 export default function App() {
   return (
@@ -18,6 +19,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category" element={<CategoryPage />} />
+          <Route
+            path="/products/category/:category"
+            element={<ProductListPage />}
+          />
           <Route path="/products/:id" element={<ProductDetailPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
           <Route path="/profile" element={<ProfilePage />} />
