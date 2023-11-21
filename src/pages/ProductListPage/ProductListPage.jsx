@@ -13,7 +13,6 @@ export default function ProductListPage() {
         `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/category/${category}`
       );
       setProductList(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -33,7 +32,11 @@ export default function ProductListPage() {
               <li className="product-card">
                 <Link className="product-card__link">
                   <h3>{product.name}</h3>
-                  <img src={product.img_url} alt="" className="product-card__img" />
+                  <img
+                    src={product.img_url}
+                    alt=""
+                    className="product-card__img"
+                  />
                 </Link>
               </li>
             ))}
