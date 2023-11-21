@@ -23,13 +23,12 @@
     gap: 0.5rem;
   }
 
-  &__item-card {
-    @include card-style;
-    border-radius: 1.8125rem;
-  }
-
   &__link {
     text-decoration: none;
     color: black;
+  }
+
+  &__item-card {
+    @include card-style;
   }
 }
