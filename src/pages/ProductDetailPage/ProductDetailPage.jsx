@@ -27,6 +27,10 @@ export default function ProductDetailPage() {
     setProductDetails(data[0]);
   };
 
+  const getListingList = async () => {
+    const { data } = await axios.get();
+  };
+
   useEffect(() => {
     getProductDetails();
     getPostcodeCoordinate();
@@ -40,11 +44,11 @@ export default function ProductDetailPage() {
     <div className="product-page">
       <div className="product-page__container">
         <section className="product-info">
-          <article className="product-info__img">
+          <article className="product-info__img-card">
             <img
               src={productDetails.img_url}
               alt={productDetails.name}
-              className="product-info__img--main"
+              className="product-info__img"
             />
           </article>
 

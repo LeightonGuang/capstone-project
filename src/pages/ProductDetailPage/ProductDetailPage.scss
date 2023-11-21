@@ -8,12 +8,14 @@
 }
 
 .product-info {
-  &__img {
+  &__img-card {
     //product image card
-    background-color: green;
+    @include card-style;
+    background-color: white;
     padding: 0.5rem;
 
-    &--main {
+    &__img {
+      margin: 0 auto;
     }
 
     &--select {
