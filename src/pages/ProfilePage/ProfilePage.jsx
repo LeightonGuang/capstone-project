@@ -15,7 +15,7 @@ export default function ProfilePage() {
           <h2 className="profile__title">Profile</h2>
           <div className="profile__">
             <div className="profile__signup-card">
-              <Link to={"/signup"}>Sign Up</Link>
+              <Link to={"/signup"}>Register as a business</Link>
             </div>
             <div className="profile__login-card">
               <Link to={"/login"}>Log In</Link>
