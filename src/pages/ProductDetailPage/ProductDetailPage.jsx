@@ -2,11 +2,12 @@ import "./ProductDetailPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function ProductDetailPage() {
-  const GOOGLE_MAP_API_KEY = "AIzaSyBwkmurehaPP1evvj8i2F67MrPwlDMHrTI";
-
-  const [coordinates, setCoordinates] = useState({});
+  const [coordinates, setCoordinates] = useState(null);
+  const [productDetails, setProductDetails] = useState(null);
+  const { id } = useParams();
 
   const getPostcodeCoordinate = async () => {
     const { data } = await axios.get(
@@ -18,9 +19,22 @@ export default function ProductDetailPage() {
     });
   };
 
+  const getProductDetails = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/${id}`
+    );
+    console.log(data[0]);
+    setProductDetails(data[0]);
+  };
+
   useEffect(() => {
+    getProductDetails();
     getPostcodeCoordinate();
   }, []);
+
+  if (!productDetails) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="product-page">
@@ -28,34 +42,19 @@ export default function ProductDetailPage() {
         <section className="product-info">
           <article className="product-info__img">
             <img
-              src="https://placehold.co/500x500"
-              alt="placeholder img"
+              src={productDetails.img_url}
+              alt={productDetails.name}
               className="product-info__img--main"
             />
-            <div className="product-info__img-list">
-              <img
-                src="https://placehold.co/500x500"
-                alt=""
-                className="product-info__img--select"
-              />
-              <img
-                src="https://placehold.co/500x500"
-                alt=""
-                className="product-info__img--select"
-              />
-              <img
-                src="https://placehold.co/500x500"
-                alt=""
-                className="product-info__img--select"
-              />
-            </div>
           </article>
 
           <article className="product-info__description">
             <div className="product-info__container">
-              <h2 className="product-info__name">Intel I9 14900k</h2>
-              <span>Intel</span>
-              <p>release date</p>
+              <h2 className="product-info__name">{productDetails.name}</h2>
+              <span>Brand: {productDetails.brand}</span>
+              <span>Model: {productDetails.model}</span>
+              <p>description: {productDetails.description}</p>
+              <span>Category: {productDetails.category}</span>
             </div>
           </article>
         </section>
@@ -70,17 +69,17 @@ export default function ProductDetailPage() {
           </div>
         </article>
 
-        <iframe
+        {/* <iframe
           title="google map"
           width="100%"
           height="400"
-          frameborder="0"
-          referrerpolicy="no-referrer-when-downgrade"
+          frameBorder="0"
+          referrerPolicy="no-referrer-when-downgrade"
           src={`https://www.google.com/maps/embed/v1/place
           ?key=${"AIzaSyBwkmurehaPP1evvj8i2F67MrPwlDMHrTI"}
           &location=${coordinates.latitude},${coordinates.longitude}`}
-          allowfullscreen
-        ></iframe>
+          allowFullScreen
+        ></iframe> */}
       </div>
     </div>
   );
