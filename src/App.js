@@ -2,7 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
-import ProductPage from "./pages/ProductPage/ProductPage";
+import ProductDetailPage from "./pages/ProductDetailPage/ProductDetailPage";
 import MobileMenu from "./components/MobileMenu/MobileMenu";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import FavouritePage from "./pages/FavouritePage/FavouritePage";
@@ -18,7 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category" element={<CategoryPage />} />
-          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/products/:id" element={<ProductDetailPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/signup" element={<SignupPage />} />

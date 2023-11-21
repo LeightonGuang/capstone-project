@@ -1,9 +1,9 @@
-import "./ProductPage.scss";
+import "./ProductDetailPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function ProductPage() {
+export default function ProductDetailPage() {
   const GOOGLE_MAP_API_KEY = "AIzaSyBwkmurehaPP1evvj8i2F67MrPwlDMHrTI";
 
   const [coordinates, setCoordinates] = useState({});
