@@ -37,7 +37,10 @@ export default function ProductListPage() {
           <ul className="product-list__list">
             {productList.map((product) => (
               <li key={product.id} className="product-card">
-                <Link className="product-card__link">
+                <Link
+                  to={`/products/${product.id}`}
+                  className="product-card__link"
+                >
                   <h3>{product.name}</h3>
                   <img
                     src={product.img_url}
