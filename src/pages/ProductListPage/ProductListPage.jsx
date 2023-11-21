@@ -29,7 +29,7 @@ export default function ProductListPage() {
           <h2 className="product-list__title">{category}</h2>
           <ul className="product-list__list">
             {productList.map((product) => (
-              <li className="product-card">
+              <li key={product.id} className="product-card">
                 <Link className="product-card__link">
                   <h3>{product.name}</h3>
                   <img

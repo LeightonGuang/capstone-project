@@ -31,11 +31,10 @@ export default function CategoryPage() {
             {categories.map((category, index) => (
               <Link
                 to={`/products/category/${category.category}`}
+                key={index}
                 className="category__link"
               >
-                <li key={index} className="category__item-card">
-                  {category.category}
-                </li>
+                <li className="category__item-card">{category.category}</li>
               </Link>
             ))}
           </ul>
