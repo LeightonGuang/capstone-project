@@ -84,42 +84,6 @@ export default function ProductDetailPage() {
                 price={shop.price}
               />
             ))}
-            {/* <ShopListingCard
-              imgURL={
-                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
-              }
-              shopName={"cheap Store"}
-              address={"EC2A3QA"}
-              price={"$100"}
-              className="shops-card__shop"
-            />
-            <ShopListingCard
-              imgURL={
-                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
-              }
-              shopName={"cheap Store"}
-              address={"EC2A3QA"}
-              price={"$100"}
-              className="shops-card__shop"
-            />
-            <ShopListingCard
-              imgURL={
-                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
-              }
-              shopName={"cheap Store"}
-              address={"EC2A3QA"}
-              price={"$100"}
-              className="shops-card__shop"
-            />
-            <ShopListingCard
-              imgURL={
-                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
-              }
-              shopName={"cheap Store"}
-              address={"EC2A3QA"}
-              price={"$100"}
-              className="shops-card__shop"
-            /> */}
           </div>
         </article>
 
