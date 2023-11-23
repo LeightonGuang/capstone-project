@@ -10,6 +10,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProductListPage from "./pages/ProductListPage/ProductListPage";
+import ShopPage from "./pages/ShopPage/ShopPage";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/shop/:id" element={<ShopPage />} />
         </Routes>
         <MobileMenu />
       </BrowserRouter>

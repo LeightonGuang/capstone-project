@@ -2,7 +2,7 @@ import "./ProductDetailPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Map, { Marker } from "react-map-gl";
 import scrollToTop from "../../utils/scrollToTop";
 
@@ -77,14 +77,16 @@ export default function ProductDetailPage() {
           <h3 className="shops-card__title">Prices</h3>
           <div className="shops-card__list">
             {listing.map((shop) => (
-              <ShopListingCard
-                key={shop.shop_id}
-                imgURL={shop.img_url}
-                shopName={shop.name}
-                address={shop.address}
-                currency={shop.currency}
-                price={shop.price}
-              />
+              <Link to={`/shop/${shop.shop_id}`}>
+                <ShopListingCard
+                  key={shop.shop_id}
+                  imgURL={shop.img_url}
+                  shopName={shop.name}
+                  address={shop.address}
+                  currency={shop.currency}
+                  price={shop.price}
+                />
+              </Link>
             ))}
           </div>
         </article>
