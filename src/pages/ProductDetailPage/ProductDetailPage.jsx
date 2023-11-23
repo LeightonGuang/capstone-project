@@ -1,8 +1,9 @@
 import "./ProductDetailPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Map, { Marker, Popup } from "react-map-gl";
 
 export default function ProductDetailPage() {
   const [coordinates, setCoordinates] = useState(null);
@@ -11,7 +12,7 @@ export default function ProductDetailPage() {
 
   const getPostcodeCoordinate = async () => {
     const { data } = await axios.get(
-      `https://api.postcodes.io/postcodes/ha14su`
+      `https://api.postcodes.io/postcodes/EC2A3QA`
     );
     setCoordinates({
       longitude: data.result.longitude,
@@ -36,7 +37,7 @@ export default function ProductDetailPage() {
     getPostcodeCoordinate();
   }, []);
 
-  if (!productDetails) {
+  if (!productDetails || !coordinates) {
     return <p>Loading...</p>;
   }
 
@@ -73,21 +74,37 @@ export default function ProductDetailPage() {
           </div>
         </article>
 
-        {/* <iframe
-          title="google map"
-          width="100%"
-          height="400"
-          frameBorder="0"
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/place
-          ?key=${"AIzaSyBwkmurehaPP1evvj8i2F67MrPwlDMHrTI"}
-          &location=${coordinates.latitude},${coordinates.longitude}`}
-          allowFullScreen
-        ></iframe> */}
+        <div className="map">
+          <article className="map__card">
+            <Map
+              mapLib={import("mapbox-gl")}
+              mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+              initialViewState={{
+                longitude: coordinates.longitude,
+                latitude: coordinates.latitude,
+                zoom: 15,
+              }}
+              mapStyle="mapbox://styles/leighton-guang/clpb24van006a01o0bvhecb2b"
+              className="map"
+              width="100%"
+              height="25rem"
+            >
+              <Marker
+                longitude={coordinates.longitude}
+                latitude={coordinates.latitude}
+                anchor="bottom"
+                color="red"
+              ></Marker>
+              {/* <Popup
+                longitude={coordinates.longitude}
+                latitude={coordinates.latitude}
+              >
+                You are here
+              </Popup> */}
+            </Map>
+          </article>
+        </div>
       </div>
     </div>
   );
 }
-
-// &q=${"Eiffel,Tower"}`}
-// &location=${coordinates.latitude},${coordinates.longitude}
