@@ -12,16 +12,6 @@ export default function ProductDetailPage() {
   const [listing, setListing] = useState(null);
   const { id } = useParams();
 
-  const getPostcodeCoordinate = async () => {
-    const { data } = await axios.get(
-      `https://api.postcodes.io/postcodes/EC2A3QA`
-    );
-    setCoordinates({
-      longitude: data.result.longitude,
-      latitude: data.result.latitude,
-    });
-  };
-
   const getProductDetails = async () => {
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/${id}`
@@ -37,14 +27,26 @@ export default function ProductDetailPage() {
     setListing(data);
   };
 
+  const getPostcodeCoordinate = async () => {
+    // const postcodes = listing.map((shop) => shop.address);
+    // console.log(postcodes);
+    const { data } = await axios.get(
+      `https://api.postcodes.io/postcodes/EC2A3QA`
+    );
+    setCoordinates({
+      longitude: data.result.longitude,
+      latitude: data.result.latitude,
+    });
+  };
+
   useEffect(() => {
     scrollToTop();
     getProductDetails();
-    getPostcodeCoordinate();
     getListing();
+    getPostcodeCoordinate();
   }, []);
 
-  if (!productDetails || !coordinates) {
+  if (!(productDetails && coordinates)) {
     return <p>Loading...</p>;
   }
 
@@ -107,7 +109,7 @@ export default function ProductDetailPage() {
                 latitude={coordinates.latitude}
                 anchor="bottom"
                 color="red"
-              ></Marker>
+              />
             </Map>
           </article>
         </div>
