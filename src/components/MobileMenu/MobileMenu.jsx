@@ -31,7 +31,7 @@ export default function MobileMenu() {
             </li>
           </NavLink>
 
-          <NavLink to={"/saved"} className="mobile-menu__link">
+          <NavLink to={"/favourite"} className="mobile-menu__link">
             <li className="mobile-menu__img-container">
               <img
                 src={heartIcon}
