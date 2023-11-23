@@ -56,8 +56,8 @@ export default function ProductDetailPage() {
         <section className="product-info">
           <article className="product-info__img-card">
             <img
-              src={productDetails.img_url}
-              alt={productDetails.name}
+              src={productDetails.product_img_url}
+              alt={productDetails.product_name}
               className="product-info__img"
             />
           </article>
@@ -80,8 +80,8 @@ export default function ProductDetailPage() {
               <Link to={`/shop/${shop.shop_id}`}>
                 <ShopListingCard
                   key={shop.shop_id}
-                  imgURL={shop.img_url}
-                  shopName={shop.name}
+                  imgURL={shop.shop_logo_url}
+                  shopName={shop.shop_name}
                   address={shop.address}
                   currency={shop.currency}
                   price={shop.price}

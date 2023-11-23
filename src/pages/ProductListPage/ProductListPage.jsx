@@ -41,9 +41,9 @@ export default function ProductListPage() {
                   to={`/products/${product.id}`}
                   className="product-card__link"
                 >
-                  <h3>{product.name}</h3>
+                  <h3>{product.product_name}</h3>
                   <img
-                    src={product.img_url}
+                    src={product.product_img_url}
                     alt=""
                     className="product-card__img"
                   />

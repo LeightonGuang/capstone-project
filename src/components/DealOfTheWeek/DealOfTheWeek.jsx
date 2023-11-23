@@ -50,8 +50,8 @@ export default function DealOfTheWeek() {
               className="deal-of-the-week__link"
             >
               <DealCard
-                img={product.img_url}
-                productName={product.name}
+                img={product.product_img_url}
+                productName={product.product_name}
                 price={"some price"}
               />
             </Link>
