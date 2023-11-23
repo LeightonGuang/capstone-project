@@ -1,13 +1,15 @@
 import "./ProductDetailPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Map, { Marker, Popup } from "react-map-gl";
+import Map, { Marker } from "react-map-gl";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function ProductDetailPage() {
   const [coordinates, setCoordinates] = useState(null);
   const [productDetails, setProductDetails] = useState(null);
+  const [listing, setListing] = useState(null);
   const { id } = useParams();
 
   const getPostcodeCoordinate = async () => {
@@ -28,13 +30,18 @@ export default function ProductDetailPage() {
     setProductDetails(data[0]);
   };
 
-  const getListingList = async () => {
-    const { data } = await axios.get();
+  const getListing = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/${id}/listing`
+    );
+    setListing(data);
   };
 
   useEffect(() => {
+    scrollToTop();
     getProductDetails();
     getPostcodeCoordinate();
+    getListing();
   }, []);
 
   if (!productDetails || !coordinates) {
@@ -67,10 +74,52 @@ export default function ProductDetailPage() {
         <article className="shops-card">
           <h3 className="shops-card__title">Prices</h3>
           <div className="shops-card__list">
-            <ShopListingCard className="shops-card__shop" />
-            <ShopListingCard />
-            <ShopListingCard />
-            <ShopListingCard />
+            {listing.map((shop) => (
+              <ShopListingCard
+                key={shop.id}
+                imgURL={shop.img_url}
+                shopName={shop.name}
+                address={shop.address}
+                currency={shop.currency}
+                price={shop.price}
+              />
+            ))}
+            {/* <ShopListingCard
+              imgURL={
+                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
+              }
+              shopName={"cheap Store"}
+              address={"EC2A3QA"}
+              price={"$100"}
+              className="shops-card__shop"
+            />
+            <ShopListingCard
+              imgURL={
+                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
+              }
+              shopName={"cheap Store"}
+              address={"EC2A3QA"}
+              price={"$100"}
+              className="shops-card__shop"
+            />
+            <ShopListingCard
+              imgURL={
+                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
+              }
+              shopName={"cheap Store"}
+              address={"EC2A3QA"}
+              price={"$100"}
+              className="shops-card__shop"
+            />
+            <ShopListingCard
+              imgURL={
+                "https://logowik.com/content/uploads/images/877_gigabyt.jpg"
+              }
+              shopName={"cheap Store"}
+              address={"EC2A3QA"}
+              price={"$100"}
+              className="shops-card__shop"
+            /> */}
           </div>
         </article>
 
@@ -95,12 +144,6 @@ export default function ProductDetailPage() {
                 anchor="bottom"
                 color="red"
               ></Marker>
-              {/* <Popup
-                longitude={coordinates.longitude}
-                latitude={coordinates.latitude}
-              >
-                You are here
-              </Popup> */}
             </Map>
           </article>
         </div>

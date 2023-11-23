@@ -2,11 +2,15 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .shop-card {
-  background-color: pink;
-  border: 1px solid black;
-  border-radius: 0.5rem;
-  margin: 0.25rem;
+  @include card-style;
+  background-color: white;
   padding: 0.2rem;
+  display: flex;
+
+  &__logo {
+    width: 5rem;
+    object-fit: contain;
+  }
 
   &__name {
     margin: 0;
