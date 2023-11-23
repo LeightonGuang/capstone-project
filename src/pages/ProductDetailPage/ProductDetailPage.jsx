@@ -76,7 +76,7 @@ export default function ProductDetailPage() {
           <div className="shops-card__list">
             {listing.map((shop) => (
               <ShopListingCard
-                key={shop.id}
+                key={shop.shop_id}
                 imgURL={shop.img_url}
                 shopName={shop.name}
                 address={shop.address}
