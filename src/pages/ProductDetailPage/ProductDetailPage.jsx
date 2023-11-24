@@ -79,6 +79,7 @@ export default function ProductDetailPage() {
             {listing.map((shop) => (
               <ShopListingCard
                 key={shop.shop_id}
+                listingId={shop.listing_id}
                 shopId={shop.shop_id}
                 imgURL={shop.shop_logo_url}
                 shopName={shop.shop_name}

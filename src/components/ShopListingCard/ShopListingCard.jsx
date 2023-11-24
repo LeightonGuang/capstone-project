@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function ShopListingCard({
+  listingId,
   shopId,
   imgURL,
   shopName,
@@ -12,28 +13,31 @@ export default function ShopListingCard({
   price,
 }) {
   const handleFavouriteClick = async () => {
-    const user = localStorage.getItem("user");
+    let user_id = localStorage.getItem("id");
 
-    if (!user) {
+    if (!user_id) {
       try {
         const { data } = await axios.get(
           `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/new-user`
         );
 
-        const user = { id: data };
-        console.log(user);
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("id", data);
       } catch (error) {
         console.error(error);
       }
     }
+
+    await axios.put(
+      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite`,
+      { user_id, listing_id: listingId }
+    );
   };
 
   return (
     <article className="shop-card">
-      <Link to={`/shop/${shopId}`}>
+      <Link to={`/shop/${shopId}`} className="shop-card__link">
         <img src={imgURL} alt="shop logo" className="shop-card__logo" />
-        <div>
+        <div className="shop-card__info-container">
           <h3 className="shop-card__name">{shopName}</h3>
           <span className="shop-card__address">{address}</span>
           <div className="shop-card__price">{currency + " " + price}</div>

@@ -6,14 +6,30 @@
   background-color: white;
   padding: 0.2rem;
   display: flex;
+  justify-content: space-between;
+
+  &__link {
+    display: flex;
+  }
 
   &__logo {
     width: 5rem;
     object-fit: contain;
   }
 
+  &__info-container {
+    color: black;
+    text-decoration: none;
+  }
+
   &__name {
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  &__fav-btn {
+    width: 3rem;
   }
 }
