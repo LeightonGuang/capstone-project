@@ -26,7 +26,7 @@ export default function ShopPage() {
     <div className="shop-page">
       <div className="shop-page__container">
         <article className="shop-page__card">
-          <img src={shopListing[0].shop_logo_url} alt="" />
+          <img src={shopListing[0].shop_logo_url} alt="shop logo" />
           <h2 className="shop-page__title">{shopListing[0].shop_name}</h2>
 
           <ul className="shop-page__listing">

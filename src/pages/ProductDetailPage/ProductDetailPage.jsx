@@ -77,16 +77,15 @@ export default function ProductDetailPage() {
           <h3 className="shops-card__title">Prices</h3>
           <div className="shops-card__list">
             {listing.map((shop) => (
-              <Link to={`/shop/${shop.shop_id}`}>
-                <ShopListingCard
-                  key={shop.shop_id}
-                  imgURL={shop.shop_logo_url}
-                  shopName={shop.shop_name}
-                  address={shop.address}
-                  currency={shop.currency}
-                  price={shop.price}
-                />
-              </Link>
+              <ShopListingCard
+                key={shop.shop_id}
+                shopId={shop.shop_id}
+                imgURL={shop.shop_logo_url}
+                shopName={shop.shop_name}
+                address={shop.address}
+                currency={shop.currency}
+                price={shop.price}
+              />
             ))}
           </div>
         </article>
