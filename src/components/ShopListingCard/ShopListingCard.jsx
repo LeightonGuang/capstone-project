@@ -36,7 +36,11 @@ export default function ShopListingCard({
   return (
     <article className="shop-card">
       <Link to={`/shop/${shopId}`} className="shop-card__link">
-        <img src={imgURL} alt="shop logo" className="shop-card__logo" />
+        <img
+          src={imgURL ? imgURL : "https://placehold.co/500x500"}
+          alt="shop logo"
+          className="shop-card__logo"
+        />
         <div className="shop-card__info-container">
           <h3 className="shop-card__name">{shopName}</h3>
           <span className="shop-card__address">{address}</span>

@@ -4,16 +4,18 @@
 .shop-card {
   @include card-style;
   background-color: white;
-  padding: 0.2rem;
+  padding: 0.25rem;
   display: flex;
   justify-content: space-between;
+  height: 6rem;
+  align-items: center;
 
   &__link {
     display: flex;
   }
 
   &__logo {
-    width: 5rem;
+    width: 4rem;
     object-fit: contain;
   }
 
@@ -30,6 +32,10 @@
   }
 
   &__fav-btn {
-    width: 3rem;
+    max-width: 2rem;
+    height: 2rem;
+  }
+
+  &__product_name {
   }
 }
