@@ -52,7 +52,6 @@ export default function DealOfTheWeek() {
               <DealCard
                 img={product.product_img_url}
                 productName={product.product_name}
-                price={"some price"}
               />
             </Link>
           ))}
