@@ -29,9 +29,19 @@
   max-height: 6rem;
 
   &__link {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-decoration: none;
   }
 
   &__img {
     height: 4rem;
+  }
+
+  &__name {
+    font-weight: 400;
+    color: black;
+    margin: 0;
   }
 }
