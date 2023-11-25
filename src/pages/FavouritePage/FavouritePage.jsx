@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import selectedHeartIcon from "../../assets/icons/heart-fill.svg";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function FavouritePage() {
   const [favouriteList, setFavouriteList] = useState();
@@ -16,6 +17,7 @@ export default function FavouritePage() {
     console.log(data);
   };
   useEffect(() => {
+    scrollToTop();
     getFavourite();
   }, []);
 

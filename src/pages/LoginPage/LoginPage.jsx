@@ -1,8 +1,9 @@
 import "./LoginPage.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
 import axios from "axios";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function LoginPage() {
   const [error, setError] = useState(null);
@@ -28,6 +29,10 @@ export default function LoginPage() {
       setError(error.response.data);
     }
   };
+
+  useEffect(() => {
+    scrollToTop();
+  });
 
   return (
     <div className="login">
