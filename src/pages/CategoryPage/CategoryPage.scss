@@ -30,5 +30,6 @@
 
   &__item-card {
     @include card-style;
+    border-radius: 1.75rem;
   }
 }
