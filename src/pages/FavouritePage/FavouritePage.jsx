@@ -36,7 +36,7 @@ export default function FavouritePage() {
                   <Link
                     to={`/products/${listing.product_id}`}
                     key={index}
-                    className="favourite-card__list"
+                    className="favourite-card__link"
                   >
                     <img
                       src={listing.product_img_url}
@@ -44,7 +44,9 @@ export default function FavouritePage() {
                       className="favourite-card__img"
                     />
                     <div className="favourite-card__infos">
-                      <p>{listing.product_name}</p>
+                      <p className="favourite-card__name">
+                        {listing.product_name}
+                      </p>
                       <span>{`${listing.currency} ${listing.price}`}</span>
                     </div>
                   </Link>

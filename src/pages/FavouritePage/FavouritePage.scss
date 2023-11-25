@@ -28,6 +28,9 @@
 
   &__link {
     display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
   }
 
   &__img {
@@ -36,6 +39,10 @@
 
   &__infos {
     display: flex;
+  }
+
+  &__name {
+    margin: 0;
   }
 
   &__heart-icon {
