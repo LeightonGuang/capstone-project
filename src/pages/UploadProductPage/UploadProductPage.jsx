@@ -1,9 +1,9 @@
+import "./UploadProductPage.scss";
 import axios from "axios";
-import "./ListProductPage.scss";
 import { useEffect, useState } from "react";
 import scrollToTop from "../../utils/scrollToTop";
 
-export default function ListProductPage() {
+export default function UploadProductPage() {
   const [allProducts, setAllProducts] = useState();
 
   const getAllProducts = async () => {

@@ -11,7 +11,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProductListPage from "./pages/ProductListPage/ProductListPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
-import ListProductPage from "./pages/ListProductPage/ListProductPage";
+import UploadProductPage from "./pages/UploadProductPage/UploadProductPage";
 
 export default function App() {
   return (
@@ -32,7 +32,7 @@ export default function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/shop/:id" element={<ShopPage />} />
-          <Route path="/listProduct" element={<ListProductPage />} />
+          <Route path="/uploadProduct" element={<UploadProductPage />} />
         </Routes>
         <MobileMenu />
       </BrowserRouter>
