@@ -2,6 +2,7 @@ import "./FavouritePage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import selectedHeartIcon from "../../assets/icons/heart-fill.svg";
 
 export default function FavouritePage() {
   const [favouriteList, setFavouriteList] = useState();
@@ -29,21 +30,29 @@ export default function FavouritePage() {
           <ul className="favourite__list">
             {favouriteList.map((listing, index) => {
               return (
-                <Link
-                  to={`/products/${listing.product_id}`}
-                  key={index}
-                  className="favourite-card"
-                >
+                <div className="favourite-card">
+                  <Link
+                    to={`/products/${listing.product_id}`}
+                    key={index}
+                    className="favourite-card__list"
+                  >
+                    <img
+                      src={listing.product_img_url}
+                      alt={listing.product_name}
+                      className="favourite-card__img"
+                    />
+                    <div className="favourite-card__infos">
+                      <p>{listing.product_name}</p>
+                      <span>{`${listing.currency} ${listing.price}`}</span>
+                    </div>
+                  </Link>
+
                   <img
-                    src={listing.product_img_url}
-                    alt={listing.product_name}
-                    className="favourite-card__img"
+                    src={selectedHeartIcon}
+                    alt="save icon"
+                    className="favourite-card__heart-icon"
                   />
-                  <div className="favourite-card__infos">
-                    <p>{listing.product_name}</p>
-                    <span>{`${listing.currency} ${listing.price}`}</span>
-                  </div>
-                </Link>
+                </div>
               );
             })}
           </ul>

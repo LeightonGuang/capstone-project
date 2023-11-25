@@ -26,11 +26,22 @@
   display: flex;
   justify-content: space-between;
 
+  &__link {
+    display: flex;
+  }
+
   &__img {
     width: 3rem;
   }
 
   &__infos {
     display: flex;
+  }
+
+  &__heart-icon {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background: none;
   }
 }
