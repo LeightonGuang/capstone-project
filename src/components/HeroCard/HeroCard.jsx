@@ -8,7 +8,9 @@ export default function HeroCard() {
         <h2 className="hero__title">
           Find the cheapest shop for what you want!
         </h2>
-        <Link to="/products">Browse Now</Link>
+        <Link to="/products" className="hero__btn">
+          Browse Now
+        </Link>
       </div>
     </section>
   );

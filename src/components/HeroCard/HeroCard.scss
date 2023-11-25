@@ -7,10 +7,18 @@
   padding: 1rem;
   margin-bottom: 1rem;
 
-  &__container {
-  }
-
   &__title {
     margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__btn {
+    @include card-style;
+    background-color: $primary;
+    text-decoration: none;
+    color: black;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
   }
 }
