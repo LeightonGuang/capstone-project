@@ -2,19 +2,25 @@ import { Link, useParams } from "react-router-dom";
 import "./ShopPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function ShopPage() {
   const [shopListing, setShopListing] = useState();
   const { id } = useParams();
 
   const getShopListing = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/${id}`
-    );
-    setShopListing(data);
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/${id}`
+      );
+      setShopListing(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
+    scrollToTop();
     getShopListing();
   }, []);
 
@@ -36,7 +42,10 @@ export default function ShopPage() {
                   to={`/products/${product.product_id}`}
                   key={product.product_id}
                 >
-                  <img src={product.product_img_url} alt={product.product_name} />
+                  <img
+                    src={product.product_img_url}
+                    alt={product.product_name}
+                  />
                   {product.product_name}
                 </Link>
               );
