@@ -62,6 +62,11 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  &__no-listing {
+    @include card-style;
+    background-color: white;
+  }
 }
 
 .map {

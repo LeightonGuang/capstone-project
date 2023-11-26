@@ -2,7 +2,7 @@ import "./ProductDetailPage.scss";
 import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Map, { Marker } from "react-map-gl";
 import scrollToTop from "../../utils/scrollToTop";
 
@@ -96,47 +96,57 @@ export default function ProductDetailPage() {
         <article className="shops-card">
           <h3 className="shops-card__title">Prices</h3>
           <div className="shops-card__list">
-            {listing.map((shop) => (
-              <ShopListingCard
-                key={shop.shop_id}
-                listingId={shop.listing_id}
-                shopId={shop.shop_id}
-                imgURL={shop.shop_logo_url}
-                shopName={shop.shop_name}
-                address={shop.address}
-                currency={shop.currency}
-                price={shop.price}
-              />
-            ))}
+            {listing.length === 0 ? (
+              <div className="shops-card__no-listing">
+                there are no listing at the moment
+              </div>
+            ) : (
+              listing.map((shop) => (
+                <ShopListingCard
+                  key={shop.shop_id}
+                  listingId={shop.listing_id}
+                  shopId={shop.shop_id}
+                  imgURL={shop.shop_logo_url}
+                  shopName={shop.shop_name}
+                  address={shop.address}
+                  currency={shop.currency}
+                  price={shop.price}
+                />
+              ))
+            )}
           </div>
         </article>
 
-        <div className="map">
-          <article className="map__card">
-            <Map
-              mapLib={import("mapbox-gl")}
-              mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-              initialViewState={{
-                longitude: coordinates[0].longitude,
-                latitude: coordinates[0].latitude,
-                zoom: 15,
-              }}
-              mapStyle="mapbox://styles/leighton-guang/clpb24van006a01o0bvhecb2b"
-              className="map"
-              width="100%"
-              height="25rem"
-            >
-              {coordinates.map((coordinate, index) => (
-                <Marker
-                  key={index}
-                  longitude={coordinate.longitude}
-                  latitude={coordinate.latitude}
-                  color="red"
-                />
-              ))}
-            </Map>
-          </article>
-        </div>
+        {coordinates.length === 0 ? (
+          <div></div>
+        ) : (
+          <div className="map">
+            <article className="map__card">
+              <Map
+                mapLib={import("mapbox-gl")}
+                mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+                initialViewState={{
+                  longitude: coordinates[0].longitude,
+                  latitude: coordinates[0].latitude,
+                  zoom: 15,
+                }}
+                mapStyle="mapbox://styles/leighton-guang/clpb24van006a01o0bvhecb2b"
+                className="map"
+                width="100%"
+                height="25rem"
+              >
+                {coordinates.map((coordinate, index) => (
+                  <Marker
+                    key={index}
+                    longitude={coordinate.longitude}
+                    latitude={coordinate.latitude}
+                    color="red"
+                  />
+                ))}
+              </Map>
+            </article>
+          </div>
+        )}
       </div>
     </div>
   );
