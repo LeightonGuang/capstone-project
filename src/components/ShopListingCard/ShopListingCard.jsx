@@ -1,7 +1,9 @@
 import "./ShopListingCard.scss";
-import heartIcon from "../../assets/icons/heart-outline.svg";
+import outlineHeartIcon from "../../assets/icons/heart-outline.svg";
+import fillHeartIcon from "../../assets/icons/heart-fill.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function ShopListingCard({
   listingId,
@@ -12,8 +14,34 @@ export default function ShopListingCard({
   currency,
   price,
 }) {
+  const [savedListing, setSavedListing] = useState();
+
+  const getSaved = async () => {
+    const user_id = localStorage.getItem("id");
+
+    if (!user_id) {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/new-user`
+        );
+
+        localStorage.setItem("id", data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/${user_id}`
+    );
+    console.log(data);
+    const savedArray = data.map((product) => product.listing_id);
+    console.log(savedArray);
+    setSavedListing(savedArray);
+  };
+
   const handleFavouriteClick = async () => {
-    let user_id = localStorage.getItem("id");
+    const user_id = localStorage.getItem("id");
 
     if (!user_id) {
       try {
@@ -31,7 +59,17 @@ export default function ShopListingCard({
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite`,
       { user_id, listing_id: listingId }
     );
+
+    getSaved();
   };
+
+  useEffect(() => {
+    getSaved();
+  }, []);
+
+  if (!savedListing) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <article className="shop-card">
@@ -48,7 +86,9 @@ export default function ShopListingCard({
         </div>
       </Link>
       <img
-        src={heartIcon}
+        src={
+          savedListing.includes(listingId) ? fillHeartIcon : outlineHeartIcon
+        }
         alt=""
         onClick={handleFavouriteClick}
         className="shop-card__fav-btn"
