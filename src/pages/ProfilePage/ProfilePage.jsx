@@ -52,7 +52,7 @@ export default function ProfilePage() {
       <div className="profile">
         <div className="profile__container">
           <article className="profile__card">
-            <h2 className="profile__title">Profile</h2>
+            <h2 className="profile__title">{profile.shop_name}</h2>
             <div className="profile__btn-container">
               <Link to={"/uploadProduct"} className="profile__setting-btn">
                 Upload a product listing
