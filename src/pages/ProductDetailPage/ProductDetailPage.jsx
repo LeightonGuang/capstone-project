@@ -10,6 +10,7 @@ export default function ProductDetailPage() {
   const [coordinates, setCoordinates] = useState(null);
   const [productDetails, setProductDetails] = useState(null);
   const [listing, setListing] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   const getProductDetails = async () => {
@@ -25,26 +26,43 @@ export default function ProductDetailPage() {
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/${id}/listing`
     );
     setListing(data);
+    setLoading(false);
+
+    console.log("Listing set:", data);
   };
 
   const getPostcodeCoordinate = async () => {
+    if (!listing) {
+      console.log("listing is null");
+      return;
+    }
+
     // const postcodes = listing.map((shop) => shop.address);
     // console.log(postcodes);
-    const { data } = await axios.get(
-      `https://api.postcodes.io/postcodes/EC2A3QA`
-    );
-    setCoordinates({
-      longitude: data.result.longitude,
-      latitude: data.result.latitude,
+    const { data } = await axios.post(`https://api.postcodes.io/postcodes`, {
+      postcodes: ["EC2A3QA", "LA231NW", "HA14SU"],
     });
+    console.log(data.result);
+    const coordinateList = data.result.map((coordinate) => ({
+      longitude: coordinate.result.longitude,
+      latitude: coordinate.result.latitude,
+    }));
+    setCoordinates(coordinateList);
+
+    console.log(coordinateList);
   };
 
   useEffect(() => {
     scrollToTop();
     getProductDetails();
     getListing();
-    getPostcodeCoordinate();
   }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      getPostcodeCoordinate();
+    }
+  }, [loading]);
 
   if (!(productDetails && coordinates)) {
     return <p>Loading...</p>;
@@ -97,8 +115,8 @@ export default function ProductDetailPage() {
               mapLib={import("mapbox-gl")}
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
               initialViewState={{
-                longitude: coordinates.longitude,
-                latitude: coordinates.latitude,
+                longitude: coordinates[0].longitude,
+                latitude: coordinates[0].latitude,
                 zoom: 15,
               }}
               mapStyle="mapbox://styles/leighton-guang/clpb24van006a01o0bvhecb2b"
@@ -106,12 +124,13 @@ export default function ProductDetailPage() {
               width="100%"
               height="25rem"
             >
-              <Marker
-                longitude={coordinates.longitude}
-                latitude={coordinates.latitude}
-                anchor="bottom"
-                color="red"
-              />
+              {coordinates.map((coordinate) => (
+                <Marker
+                  longitude={coordinate.longitude}
+                  latitude={coordinate.latitude}
+                  color="red"
+                />
+              ))}
             </Map>
           </article>
         </div>
