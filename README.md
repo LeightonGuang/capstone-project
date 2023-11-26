@@ -1,6 +1,5 @@
-# Storedex / Shopdex
+# Shopdex
 
-Store + Index = Storedex
 Shop + Index = Shopdex
 
 ![Logo](./src/assets/images/storedex_logo.svg)
@@ -224,3 +223,13 @@ shop login
 - admin page
 - signup with google / twitter / facebook
 - parts compatibility
+
+## Instructions
+
+setup `.env`
+
+The token for mapbox is
+
+`REACT_APP_MAPBOX_TOKEN= pk.eyJ1IjoibGVpZ2h0b24tZ3VhbmciLCJhIjoiY2xwYWNxYWhxMDZuNTJrazdseXM4NDR4NSJ9.E62MYzRpMnGaazE2NUFufQ`
+
+run `npm i`
