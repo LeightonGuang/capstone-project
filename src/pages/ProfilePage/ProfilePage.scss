@@ -14,5 +14,20 @@
 
   &__title {
     margin: 0;
+    font-weight: 500;
+  }
+
+  &__btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  &__setting-card {
+    @include card-style;
+    text-decoration: none;
+    color: black;
+    border-radius: 1.75rem;
   }
 }

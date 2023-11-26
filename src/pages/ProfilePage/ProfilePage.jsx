@@ -13,13 +13,14 @@ export default function ProfilePage() {
       <div className="profile__container">
         <article className="profile__card">
           <h2 className="profile__title">Profile</h2>
-          <div className="profile__">
-            <div className="profile__signup-card">
-              <Link to={"/signup"}>Register as a business</Link>
-            </div>
-            <div className="profile__login-card">
-              <Link to={"/login"}>Log In</Link>
-            </div>
+          <div className="profile__btn-container">
+            <Link to={"/signup"} className="profile__setting-card">
+              Register as a business
+            </Link>
+
+            <Link to={"/login"} className="profile__setting-card">
+              Log In
+            </Link>
           </div>
         </article>
       </div>
