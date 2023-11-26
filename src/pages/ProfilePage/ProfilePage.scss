@@ -26,6 +26,7 @@
 
   &__setting-btn {
     @include card-style;
+    margin: 0;
     text-decoration: none;
     color: black;
     border-radius: 1.75rem;

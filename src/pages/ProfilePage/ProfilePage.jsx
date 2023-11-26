@@ -58,6 +58,10 @@ export default function ProfilePage() {
                 Upload a product listing
               </Link>
 
+              <Link to={"/manage-listing"} className="profile__setting-btn">
+                Manage Listing
+              </Link>
+
               <p onClick={handleLogout} className="profile__setting-btn">
                 Log Out
               </p>
