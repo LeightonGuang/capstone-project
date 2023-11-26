@@ -18,7 +18,6 @@ export default function ProductDetailPage() {
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product/${id}`
     );
-    console.log(data[0]);
     setProductDetails(data[0]);
   };
 
@@ -31,27 +30,21 @@ export default function ProductDetailPage() {
 
     const addressList = data.map((shop) => shop.address);
     setAddress(addressList);
-
-    console.log("Listing set:", data);
   };
 
   const getPostcodeCoordinate = async () => {
     if (!listing) {
-      console.log("listing is null");
       return;
     }
 
     const { data } = await axios.post(`https://api.postcodes.io/postcodes`, {
       postcodes: address,
     });
-    console.log(data.result);
     const coordinateList = data.result.map((coordinate) => ({
       longitude: coordinate.result.longitude,
       latitude: coordinate.result.latitude,
     }));
     setCoordinates(coordinateList);
-
-    console.log(coordinateList);
   };
 
   useEffect(() => {

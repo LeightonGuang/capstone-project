@@ -13,7 +13,6 @@ export default function FavouritePage() {
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/${id}`
     );
-    console.log(data);
     setFavouriteList(data);
   };
 

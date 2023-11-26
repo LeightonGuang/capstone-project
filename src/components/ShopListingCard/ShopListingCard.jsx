@@ -34,9 +34,8 @@ export default function ShopListingCard({
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/${user_id}`
     );
-    console.log(data);
+
     const savedArray = data.map((product) => product.listing_id);
-    console.log(savedArray);
     setSavedListing(savedArray);
   };
 

@@ -22,7 +22,6 @@ export default function LoginPage() {
       );
 
       sessionStorage.setItem("authToken", data.token);
-      console.log(data.token);
       navigate("/");
     } catch (error) {
       console.error(error);

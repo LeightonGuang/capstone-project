@@ -12,7 +12,6 @@ export default function ProfilePage() {
 
   const login = async () => {
     const authToken = sessionStorage.getItem("authToken");
-    console.log(authToken);
 
     try {
       const { data } = await axios.get(
@@ -24,7 +23,6 @@ export default function ProfilePage() {
         }
       );
 
-      console.log(data);
       setProfile(data);
       setFailedAuth(false);
     } catch (error) {
