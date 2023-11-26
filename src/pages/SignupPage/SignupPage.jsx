@@ -15,6 +15,7 @@ export default function SignupPage() {
       await axios.post(
         `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/auth/register`,
         {
+          shop_logo_url: event.target.shop_logo_url.value,
           shop_name: event.target.name.value,
           country: event.target.country.value,
           address: event.target.address.value,
@@ -36,19 +37,16 @@ export default function SignupPage() {
         <article className="signup__card">
           <h2 className="signup__title">Register as a Business</h2>
           <form onSubmit={handleSubmit} className="signup__form">
+            <Input
+              type="text"
+              name="shop_logo_url"
+              label="Upload shop logo url (optional)"
+            />
             <Input type="text" name="name" label="Name" />
             <Input type="text" name="country" label="Country" />
-            <Input type="text" name="address" label="Address" />
+            <Input type="text" name="address" label="Postcode" />
             <Input type="email" name="email" label="email" />
-            <Input type="email" name="confirm_email" label="Confirm Email" />
-            <p>This email does not match the email above</p>
             <Input type="password" name="password" label="Password" />
-            <Input
-              type="password"
-              name="confirm_password"
-              label="Confirm Password"
-            />
-            <p>This password does not match the password above</p>
 
             <div className="signup__actions">
               <Link to={"/profile"}>Cancel</Link>
