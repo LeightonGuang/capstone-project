@@ -87,8 +87,8 @@ export default function ProductDetailPage() {
               <h2 className="product-info__name">{productDetails.name}</h2>
               <span>Brand: {productDetails.brand}</span>
               <span>Model: {productDetails.model}</span>
-              <p>description: {productDetails.description}</p>
               <span>Category: {productDetails.category}</span>
+              <p>description: {productDetails.description}</p>
             </div>
           </article>
         </section>
