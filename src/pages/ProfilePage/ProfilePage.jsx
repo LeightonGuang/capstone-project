@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./ProfilePage.scss";
 import scrollToTop from "../../utils/scrollToTop";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function ProfilePage() {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [profile, setProfile] = useState();
   const [failedAuth, setFailedAuth] = useState(false);
 
   const login = async () => {
@@ -22,11 +24,18 @@ export default function ProfilePage() {
         }
       );
 
+      console.log(data);
+      setProfile(data);
       setFailedAuth(false);
     } catch (error) {
       setFailedAuth(true);
     }
     setIsLoading(false);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("authToken");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -45,9 +54,13 @@ export default function ProfilePage() {
           <article className="profile__card">
             <h2 className="profile__title">Profile</h2>
             <div className="profile__btn-container">
-              <Link to={"/uploadProduct"} className="profile__setting-card">
+              <Link to={"/uploadProduct"} className="profile__setting-btn">
                 Upload a product listing
               </Link>
+
+              <p onClick={handleLogout} className="profile__setting-btn">
+                Log Out
+              </p>
             </div>
           </article>
         </div>
@@ -60,11 +73,11 @@ export default function ProfilePage() {
           <article className="profile__card">
             <h2 className="profile__title">Profile</h2>
             <div className="profile__btn-container">
-              <Link to={"/signup"} className="profile__setting-card">
+              <Link to={"/signup"} className="profile__setting-btn">
                 Register as a business
               </Link>
 
-              <Link to={"/login"} className="profile__setting-card">
+              <Link to={"/login"} className="profile__setting-btn">
                 Log In
               </Link>
             </div>
