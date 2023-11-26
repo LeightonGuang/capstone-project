@@ -21,6 +21,9 @@ export default function ProfilePage() {
             <Link to={"/login"} className="profile__setting-card">
               Log In
             </Link>
+            <Link to={"/uploadProduct"} className="profile__setting-card">
+              Upload a product listing
+            </Link>
           </div>
         </article>
       </div>
