@@ -10,6 +10,7 @@ export default function ProductDetailPage() {
   const [coordinates, setCoordinates] = useState(null);
   const [productDetails, setProductDetails] = useState(null);
   const [listing, setListing] = useState(null);
+  const [address, setAddress] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
@@ -28,6 +29,9 @@ export default function ProductDetailPage() {
     setListing(data);
     setLoading(false);
 
+    const addressList = data.map((shop) => shop.address);
+    setAddress(addressList);
+
     console.log("Listing set:", data);
   };
 
@@ -37,10 +41,8 @@ export default function ProductDetailPage() {
       return;
     }
 
-    // const postcodes = listing.map((shop) => shop.address);
-    // console.log(postcodes);
     const { data } = await axios.post(`https://api.postcodes.io/postcodes`, {
-      postcodes: ["EC2A3QA", "LA231NW", "HA14SU"],
+      postcodes: address,
     });
     console.log(data.result);
     const coordinateList = data.result.map((coordinate) => ({
@@ -124,8 +126,9 @@ export default function ProductDetailPage() {
               width="100%"
               height="25rem"
             >
-              {coordinates.map((coordinate) => (
+              {coordinates.map((coordinate, index) => (
                 <Marker
+                  key={index}
                   longitude={coordinate.longitude}
                   latitude={coordinate.latitude}
                   color="red"
