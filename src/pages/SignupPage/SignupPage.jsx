@@ -15,7 +15,7 @@ export default function SignupPage() {
       await axios.post(
         `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/auth/register`,
         {
-          name: event.target.name.value,
+          shop_name: event.target.name.value,
           country: event.target.country.value,
           address: event.target.address.value,
           email: event.target.email.value,
