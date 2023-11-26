@@ -13,9 +13,17 @@ export default function FavouritePage() {
     const { data } = await axios.get(
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/${id}`
     );
-    setFavouriteList(data);
     console.log(data);
+    setFavouriteList(data);
   };
+
+  const handleUnsaveClick = async (savedId) => {
+    await axios.delete(
+      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/favourite/delete/${savedId}`
+    );
+    getFavourite();
+  };
+
   useEffect(() => {
     scrollToTop();
     getFavourite();
@@ -32,10 +40,9 @@ export default function FavouritePage() {
           <ul className="favourite__list">
             {favouriteList.map((listing, index) => {
               return (
-                <div className="favourite-card">
+                <li key={listing.saved_id} className="favourite-card">
                   <Link
                     to={`/products/${listing.product_id}`}
-                    key={index}
                     className="favourite-card__link"
                   >
                     <img
@@ -54,9 +61,12 @@ export default function FavouritePage() {
                   <img
                     src={selectedHeartIcon}
                     alt="save icon"
+                    onClick={() => {
+                      handleUnsaveClick(listing.saved_id);
+                    }}
                     className="favourite-card__heart-icon"
                   />
-                </div>
+                </li>
               );
             })}
           </ul>
