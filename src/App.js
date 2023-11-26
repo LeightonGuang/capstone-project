@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import ProductListPage from "./pages/ProductListPage/ProductListPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import UploadProductPage from "./pages/UploadProductPage/UploadProductPage";
+import ManageListingPage from "./pages/ManageListingPage/ManageListingPage";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/shop/:id" element={<ShopPage />} />
           <Route path="/uploadProduct" element={<UploadProductPage />} />
+          <Route path="/manage-listing" element={<ManageListingPage />} />
         </Routes>
         <MobileMenu />
       </BrowserRouter>

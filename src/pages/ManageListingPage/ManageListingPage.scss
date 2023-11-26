@@ -1,0 +1,16 @@
+@use "../../sass/abstract/mixins.scss" as *;
+@use "../../sass/abstract/variables.scss" as *;
+
+.manage-listing {
+  padding: 0 $mobile-spacing-side;
+
+  &__card {
+    background-color: white;
+    @include card-style;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 500;
+  }
+}
