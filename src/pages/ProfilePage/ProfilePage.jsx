@@ -8,12 +8,12 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [profile, setProfile] = useState();
-  const [failedAuth, setFailedAuth] = useState(false);
+  const [failedAuth, setFailedAuth] = useState(true);
 
   const login = async () => {
-    const authToken = sessionStorage.getItem("authToken");
-
     try {
+      const authToken = sessionStorage.getItem("authToken");
+
       const { data } = await axios.get(
         `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/profile`,
         {
@@ -27,6 +27,7 @@ export default function ProfilePage() {
       setFailedAuth(false);
     } catch (error) {
       setFailedAuth(true);
+      console.error(error);
     }
     setIsLoading(false);
   };
@@ -34,6 +35,7 @@ export default function ProfilePage() {
   const handleLogout = () => {
     sessionStorage.removeItem("authToken");
     navigate("/");
+    setFailedAuth(true);
   };
 
   useEffect(() => {
