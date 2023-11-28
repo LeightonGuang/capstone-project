@@ -40,7 +40,7 @@ export default function ShopPage() {
               return (
                 <Link
                   to={`/products/${product.product_id}`}
-                  key={product.product_id}
+                  key={product.listing_id}
                 >
                   <img
                     src={product.product_img_url}
