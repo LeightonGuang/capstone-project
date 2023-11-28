@@ -3,7 +3,7 @@ import ShopListingCard from "../../components/ShopListingCard/ShopListingCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import Map, { Marker } from "react-map-gl";
+import Map, { Marker, Popup } from "react-map-gl";
 import scrollToTop from "../../utils/scrollToTop";
 
 export default function ProductDetailPage() {
@@ -129,12 +129,21 @@ export default function ProductDetailPage() {
                 height="25rem"
               >
                 {coordinates.map((coordinate, index) => (
-                  <Marker
-                    key={index}
-                    longitude={coordinate.longitude}
-                    latitude={coordinate.latitude}
-                    color="red"
-                  />
+                  <>
+                    <Marker
+                      key={index}
+                      longitude={coordinate.longitude}
+                      latitude={coordinate.latitude}
+                      color="red"
+                    />
+                    <Popup
+                      key={index}
+                      longitude={coordinate.longitude}
+                      latitude={coordinate.latitude}
+                    >
+                      {listing[index].shop_name}
+                    </Popup>
+                  </>
                 ))}
               </Map>
             </article>
