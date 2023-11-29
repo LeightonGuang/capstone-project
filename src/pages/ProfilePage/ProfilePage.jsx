@@ -10,7 +10,7 @@ export default function ProfilePage() {
   const [profile, setProfile] = useState();
   const [failedAuth, setFailedAuth] = useState(true);
 
-  const login = async () => {
+  const getProfile = async () => {
     try {
       const authToken = sessionStorage.getItem("authToken");
 
@@ -27,7 +27,6 @@ export default function ProfilePage() {
       setFailedAuth(false);
     } catch (error) {
       setFailedAuth(true);
-      console.error(error);
     }
     setIsLoading(false);
   };
@@ -40,7 +39,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     scrollToTop();
-    login();
+    getProfile();
   }, []);
 
   if (isLoading) {
