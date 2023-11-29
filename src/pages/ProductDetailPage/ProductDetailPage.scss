@@ -85,3 +85,10 @@
     width: 1rem;
   }
 }
+
+.popup {
+  &__shop-logo {
+    width: 3rem;
+    border-radius: 50%;
+  }
+}

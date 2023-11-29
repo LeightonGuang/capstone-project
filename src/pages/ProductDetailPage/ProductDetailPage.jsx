@@ -129,7 +129,7 @@ export default function ProductDetailPage() {
                 height="25rem"
               >
                 {coordinates.map((coordinate, index) => (
-                  <>
+                  <div key={index}>
                     <Marker
                       key={index}
                       longitude={coordinate.longitude}
@@ -141,9 +141,18 @@ export default function ProductDetailPage() {
                       longitude={coordinate.longitude}
                       latitude={coordinate.latitude}
                     >
-                      {listing[index].shop_name}
+                      {
+                        <div className="popup">
+                          <img
+                            src={listing[index].shop_logo_url}
+                            alt=""
+                            className="popup__shop-logo"
+                          />
+                          {listing[index].shop_name}
+                        </div>
+                      }
                     </Popup>
-                  </>
+                  </div>
                 ))}
               </Map>
             </article>
