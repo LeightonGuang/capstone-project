@@ -6,27 +6,105 @@ import Input from "../../components/Input/Input";
 import { useNavigate } from "react-router-dom";
 
 export default function UploadProductPage() {
-  const [allProducts, setAllProducts] = useState();
-  const [allShops, setAllShops] = useState();
+  const [profile, setProfile] = useState(null);
+  const [failedAuth, setFailedAuth] = useState(true);
+  const [allProducts, setAllProducts] = useState(null);
+  const [allShops, setAllShops] = useState(null);
+  const [formData, setFormData] = useState({
+    product: "new product",
+  });
+  const [newProductId, setNewProductId] = useState(null);
   const navigate = useNavigate();
+  const authToken = sessionStorage.getItem("authToken");
 
-  const handleUpload = async (event) => {
+  const handleFormChange = async (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    console.log(formData);
+  };
+
+  const createNewProduct = async (event) => {
+    try {
+      // create new product and get the new product id
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/product`,
+        {
+          product_name: formData.product_name,
+          product_img_url: formData.product_img_url,
+          brand: formData.brand,
+          model: formData.model,
+          category: formData.category,
+          description: formData.description,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      console.log(data);
+      setNewProductId(data[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (formData.product === "new product") {
+      try {
+        await createNewProduct();
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+    } else if (formData.product !== "new product") {
+      try {
+        console.log(newProductId);
+        await axios.post(
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/listing`,
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+            body: {
+              product_id:
+                formData.product === "new product"
+                  ? newProductId
+                  : formData.product,
+              shop_id: profile.id,
+              currency: formData.currency,
+              price: formData.price,
+            },
+          }
+        );
+
+        navigate(`/products/${event.target.product.value}`);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  const getProfile = async () => {
     try {
-      await axios.post(
-        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/listing`,
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/profile`,
         {
-          product_id: event.target.product.value,
-          shop_id: event.target.shop.value,
-          currency: event.target.currency.value,
-          price: event.target.price.value,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 
-      navigate(`/products/${event.target.product.value}`);
+      setProfile(data);
+      setFailedAuth(false);
     } catch (error) {
-      console.error(error);
+      setFailedAuth(true);
     }
   };
 
@@ -46,12 +124,48 @@ export default function UploadProductPage() {
 
   useEffect(() => {
     scrollToTop();
+    getProfile();
     getAllProducts();
     getAllShops();
   }, []);
 
+  useEffect(() => {
+    const createListing = async () => {
+      try {
+        console.log(newProductId);
+        await axios.post(
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/listing`,
+          {
+            product_id:
+              formData.product === "new product"
+                ? newProductId
+                : formData.product,
+            shop_id: profile.id,
+            currency: formData.currency,
+            price: formData.price,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        );
+
+        navigate(`/products/${newProductId}`);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    console.log(newProductId);
+    createListing();
+  }, [newProductId]);
+
   if (!(allProducts && allShops)) {
-    return <p>Loading..</p>;
+    return <p>Loading...</p>;
+  }
+
+  if (failedAuth) {
+    navigate("/");
   }
 
   return (
@@ -60,23 +174,48 @@ export default function UploadProductPage() {
         <article className="list-product__card">
           <h2 className="list-product__title">List Product</h2>
 
-          <form className="list-product__form" onSubmit={handleUpload}>
-            <label htmlFor="">Select a product</label>
-            <select name="product">
+          <form
+            onSubmit={handleSubmit}
+            onChange={handleFormChange}
+            className="upload-form"
+          >
+            <label>Select a product</label>
+            <select name="product" className="upload-form__product">
+              <option value="new product">Add New Product</option>
               {allProducts.map((product) => (
                 <option key={product.id} value={product.id}>
                   {product.product_name}
                 </option>
               ))}
             </select>
-            <label htmlFor="">Select a shop</label>
-            <select name="shop">
-              {allShops.map((shop) => (
-                <option key={shop.id} value={shop.id}>
-                  {shop.shop_name}
-                </option>
-              ))}
-            </select>
+            {formData.product === "new product" ? (
+              <>
+                <div className="upload-form__divider" />
+
+                <Input
+                  type={"text"}
+                  name={"product_name"}
+                  label={"Product Name"}
+                />
+                <Input
+                  type={"text"}
+                  name={"product_img_url"}
+                  label={"Product Image Url"}
+                />
+                <Input type={"text"} name={"brand"} label={"Brand"} />
+                <Input type={"text"} name={"model"} label={"Model"} />
+                <Input type={"text"} name={"category"} label={"Category"} />
+                <Input
+                  type={"text"}
+                  name={"description"}
+                  label={"Description"}
+                />
+
+                <div className="upload-form__divider" />
+              </>
+            ) : (
+              <></>
+            )}
             <Input type="text" name={"currency"} label={"Currency"} />
             <Input type={"number"} name={"price"} label={"Price"} />
             <input type="submit" value={"Upload"} />

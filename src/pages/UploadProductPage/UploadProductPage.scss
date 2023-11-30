@@ -14,9 +14,15 @@
   &__title {
     margin: 0;
   }
+}
 
-  &__form {
-    display: flex;
-    flex-direction: column;
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &__divider {
+    border-bottom: 1px solid grey;
+    margin: 0.75rem 0;
   }
 }
