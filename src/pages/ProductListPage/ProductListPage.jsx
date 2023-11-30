@@ -6,7 +6,7 @@ import scrollToTop from "../../utils/scrollToTop";
 
 export default function ProductListPage() {
   const [productList, setProductList] = useState([]);
-  const { category } = useParams();
+  let { category } = useParams();
 
   const getProductsInCategory = async () => {
     try {
@@ -35,7 +35,9 @@ export default function ProductListPage() {
     <div className="product-list">
       <div className="product-list__container">
         <article className="product-list__card">
-          <h2 className="product-list__title">{category}</h2>
+          <h2 className="product-list__title">
+            {category ? category : "All Products"}
+          </h2>
           <ul className="product-list__list">
             {productList.map((product) => (
               <li key={product.id} className="product-card">
