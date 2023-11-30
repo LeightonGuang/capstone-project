@@ -129,15 +129,13 @@ export default function ProductDetailPage() {
                 height="25rem"
               >
                 {coordinates.map((coordinate, index) => (
-                  <div key={index}>
+                  <div key={listing[index].listing_id}>
                     <Marker
-                      key={index}
                       longitude={coordinate.longitude}
                       latitude={coordinate.latitude}
                       color="red"
                     />
                     <Popup
-                      key={index}
                       longitude={coordinate.longitude}
                       latitude={coordinate.latitude}
                     >
