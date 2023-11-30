@@ -23,7 +23,6 @@ export default function UploadProductPage() {
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
 
   const createNewProduct = async (event) => {
@@ -45,7 +44,6 @@ export default function UploadProductPage() {
           },
         }
       );
-      console.log(data);
       setNewProductId(data[0]);
     } catch (error) {
       console.error(error);
@@ -64,7 +62,6 @@ export default function UploadProductPage() {
       }
     } else if (formData.product !== "new product") {
       try {
-        console.log(newProductId);
         await axios.post(
           `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/listing`,
           {
@@ -132,7 +129,6 @@ export default function UploadProductPage() {
   useEffect(() => {
     const createListing = async () => {
       try {
-        console.log(newProductId);
         await axios.post(
           `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/listing`,
           {
@@ -156,7 +152,7 @@ export default function UploadProductPage() {
         console.error(error);
       }
     };
-    console.log(newProductId);
+
     createListing();
   }, [newProductId]);
 

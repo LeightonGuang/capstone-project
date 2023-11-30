@@ -39,7 +39,6 @@ export default function ManageListingPage() {
       );
 
       setProfile(data);
-      console.log(data);
       setFailedAuth(false);
     } catch (error) {
       setFailedAuth(true);
@@ -57,7 +56,6 @@ export default function ManageListingPage() {
           },
         }
       );
-      console.log(data);
       setListing(data);
     } catch (error) {
       console.error(error);
