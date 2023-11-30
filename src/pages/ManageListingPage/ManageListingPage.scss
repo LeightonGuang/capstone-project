@@ -26,6 +26,9 @@
   &__link {
     text-decoration: none;
     color: black;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   &__product-card {
