@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function UploadProductPage() {
   const [profile, setProfile] = useState(null);
-  const [failedAuth, setFailedAuth] = useState(true);
   const [allProducts, setAllProducts] = useState(null);
   const [allShops, setAllShops] = useState(null);
   const [formData, setFormData] = useState({
@@ -65,17 +64,17 @@ export default function UploadProductPage() {
         await axios.post(
           `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/listing`,
           {
+            product_id:
+              formData.product === "new product"
+                ? newProductId
+                : formData.product,
+            shop_id: profile.id,
+            currency: formData.currency,
+            price: formData.price,
+          },
+          {
             headers: {
               Authorization: `Bearer ${authToken}`,
-            },
-            body: {
-              product_id:
-                formData.product === "new product"
-                  ? newProductId
-                  : formData.product,
-              shop_id: profile.id,
-              currency: formData.currency,
-              price: formData.price,
             },
           }
         );
@@ -99,9 +98,8 @@ export default function UploadProductPage() {
       );
 
       setProfile(data);
-      setFailedAuth(false);
     } catch (error) {
-      setFailedAuth(true);
+      navigate("/");
     }
   };
 
@@ -127,6 +125,7 @@ export default function UploadProductPage() {
   }, []);
 
   useEffect(() => {
+    if (!profile) return;
     const createListing = async () => {
       try {
         await axios.post(
@@ -158,10 +157,6 @@ export default function UploadProductPage() {
 
   if (!(allProducts && allShops)) {
     return <p>Loading...</p>;
-  }
-
-  if (failedAuth) {
-    navigate("/");
   }
 
   return (
