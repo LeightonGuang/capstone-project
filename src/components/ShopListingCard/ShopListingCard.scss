@@ -4,14 +4,16 @@
 .shop-card {
   @include card-style;
   background-color: white;
-  padding: 0.25rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
-  height: 6rem;
+  min-height: 6rem;
   align-items: center;
 
   &__link {
     display: flex;
+    text-decoration: none;
+    gap: 1rem;
   }
 
   &__logo {
@@ -21,7 +23,6 @@
 
   &__info-container {
     color: black;
-    text-decoration: none;
   }
 
   &__name {
