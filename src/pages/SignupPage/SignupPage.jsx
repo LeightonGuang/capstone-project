@@ -54,8 +54,14 @@ export default function SignupPage() {
             <Input type="password" name="password" label="Password" />
 
             <div className="signup__actions">
-              <Link to={"/profile"}>Cancel</Link>
-              <input type="submit" value="Sign Up" />
+              <Link to={"/profile"} className="signup__cancel-btn">
+                Cancel
+              </Link>
+              <input
+                type="submit"
+                value="Sign Up"
+                className="signup__submit-btn"
+              />
             </div>
           </form>
         </article>

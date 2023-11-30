@@ -25,4 +25,26 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  &__actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+  }
+
+  &__cancel-btn {
+    padding: 0 1rem;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  &__submit-btn {
+    padding: 0 1rem;
+    border: none;
+    background: none;
+    font-weight: 400;
+    font-size: 1rem;
+  }
 }
