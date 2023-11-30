@@ -2,7 +2,8 @@ import "./SignupPage.scss";
 import axios from "axios";
 import Input from "../../components/Input/Input";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function SignupPage() {
   const [errror, setError] = useState();
@@ -30,6 +31,10 @@ export default function SignupPage() {
       // setError(error.response.data);
     }
   };
+
+  useEffect(() => {
+    scrollToTop();
+  });
 
   return (
     <div className="signup">

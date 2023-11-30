@@ -2,6 +2,7 @@ import "./ProductListPage.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function ProductListPage() {
   const [productList, setProductList] = useState([]);
@@ -26,6 +27,7 @@ export default function ProductListPage() {
   };
 
   useEffect(() => {
+    scrollToTop();
     getProductsInCategory();
   }, []);
 
