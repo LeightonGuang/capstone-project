@@ -12,15 +12,19 @@ export default function ManageListingPage() {
   const [listing, setListing] = useState();
 
   const handleDelete = async (id) => {
-    await axios.delete(
-      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/delete/${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      }
-    );
-    getListing();
+    try {
+      await axios.delete(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_PORT}/api/shop/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      getListing();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const getProfile = async () => {
@@ -85,13 +89,13 @@ export default function ManageListingPage() {
         <h2 className="manage-listing__title">Manage Listing</h2>
         <ul className="manage-listing__list">
           {listing.map((product) => (
-            <Link
-              to={`/products/${product.product_id}`}
-              className="manage-listing__link"
+            <li
+              key={product.listing_id}
+              className="manage-listing__product-card"
             >
-              <li
-                key={product.listing_id}
-                className="manage-listing__product-card"
+              <Link
+                to={`/products/${product.product_id}`}
+                className="manage-listing__link"
               >
                 <img
                   src={product.product_img_url}
@@ -101,17 +105,17 @@ export default function ManageListingPage() {
                 <p className="manage-listing__product-name">
                   {product.product_name}
                 </p>
+              </Link>
 
-                <img
-                  src={deleteIcon}
-                  alt="delete listing"
-                  onClick={() => {
-                    handleDelete(product.listing_id);
-                  }}
-                  className="manage-listing__delete"
-                />
-              </li>
-            </Link>
+              <img
+                src={deleteIcon}
+                alt="delete listing"
+                onClick={() => {
+                  handleDelete(product.listing_id);
+                }}
+                className="manage-listing__delete"
+              />
+            </li>
           ))}
         </ul>
       </div>
