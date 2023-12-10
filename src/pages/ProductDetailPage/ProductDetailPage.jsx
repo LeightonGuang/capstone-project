@@ -66,25 +66,31 @@ export default function ProductDetailPage() {
   return (
     <div className="product-page">
       <div className="product-page__container">
-        <section className="product-info">
-          <article className="product-info__img-card">
-            <img
-              src={productDetails.product_img_url}
-              alt={productDetails.product_name}
-              className="product-info__img"
-            />
-          </article>
-
-          <article className="product-info__description">
-            <div className="product-info__container">
-              <h2 className="product-info__name">{productDetails.name}</h2>
-              <span>Brand: {productDetails.brand}</span>
-              <span>Model: {productDetails.model}</span>
-              <span>Category: {productDetails.category}</span>
-              <p>description: {productDetails.description}</p>
+        <div className="product-info">
+          <article className="product-info__card">
+            <div className="product-info__card-container">
+              <h2 className="product-info__name">
+                {productDetails.product_name}
+              </h2>
+              <div className="product-info__img-container">
+                <img
+                  src={productDetails.product_img_url}
+                  alt={productDetails.product_name}
+                  className="product-info__img"
+                />
+                <div className="product-info__infos">
+                  <span>Brand: {productDetails.brand}</span>
+                  <span>Model: {productDetails.model}</span>
+                  <span>Category: {productDetails.category}</span>
+                </div>
+              </div>
+              <div className="product-info__divider" />
+              <p className="product-info__description">
+                description: {productDetails.description}
+              </p>
             </div>
           </article>
-        </section>
+        </div>
 
         <article className="shops-card">
           <h3 className="shops-card__title">Prices</h3>
