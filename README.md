@@ -12,6 +12,14 @@ Shop + Index = Shopdex
 
 My app does price comparions for shops with in stock items. It tells you prices of the the products and shops around you that has it. Discover the cheapest product the user desires that is in stock at physical stores.
 
+## Screenshots
+
+| Home Page                               | Product Page                                    | category page                                     |
+| --------------------------------------- | ----------------------------------------------- | ------------------------------------------------- |
+| ![home](/README/screenshots/home.png)   | ![product](/README/screenshots/productpage.png) | ![categories](/README/screenshots/categories.png) |
+| Saved Page                              | Register Page                                   | Login Page                                        |
+| ![saved](/README/screenshots/saved.png) | ![register](/README/screenshots/register.png)   | ![login](/README/screenshots/login.png)           |
+
 ### Problem
 
 <!-- Why is your app needed? Background information around any pain points or other reasons. -->
