@@ -1,8 +1,6 @@
-# Shopdex
+# <img align="left" width="30px" style="padding-right:10px" src="./src/assets/images/storedex_logo.svg"> Shopdex
 
 Shop + Index = Shopdex
-
-![Logo](./src/assets/images/storedex_logo.svg)
 
 ## Overview
 
