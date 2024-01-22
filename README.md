@@ -117,19 +117,13 @@ This is where shop owners upload their available products prices
 
 <!-- Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches. -->
 
-![Home Page](./src/assets/sketches/HomePage.png)
-
-![Category Page](./src/assets/sketches/CategoryPage.png)
-
-![Saved Page](./src/assets/sketches/SavedPage.png)
-
-![Profile Page](./src/assets/sketches/ProfilePage.png)
-
-![Search Result Page](./src/assets/sketches/SearchResultPage.png)
-
-![Product page](./src/assets/sketches/ProductPage.png)
-
-![Signup Page](./src/assets/sketches/SignupPage.png)
+| Home Page                                              | Category Page                                                     | Saved Page                                             |
+| ------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------------------------ |
+| ![Home Page](./src/assets/sketches/HomePage.png)       | ![Category Page](./src/assets/sketches/CategoryPage.png)          | ![Saved Page](./src/assets/sketches/SavedPage.png)     |
+| Profile Page                                           | Search Result Page                                                | Product Page                                           |
+| ![Profile Page](./src/assets/sketches/ProfilePage.png) | ![Search Result Page](./src/assets/sketches/SearchResultPage.png) | ![Product page](./src/assets/sketches/ProductPage.png) |
+| Sign Up Page                                           |                                                                   |                                                        |
+| ![Signup Page](./src/assets/sketches/SignupPage.png)   |                                                                   |                                                        |
 
 ### Data
 
